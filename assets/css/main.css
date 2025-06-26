@@ -55,4 +55,25 @@
     color: #ffc81e;
   }
 
+
+
+
+  @media (max-width: 414px) {
+    .heroMain {
+      padding: 1rem 1rem;
+    }
+    .title {
+      font-size: 1.2rem;    /* ~32px */
+    }
+    .rings {
+      width: 250px;
+      max-width: 50%;
+    }
+    .linkText {
+      font-size: 0.7rem;
+    }
+    .rings{
+        width: 150px;
+    }
+  }
   
