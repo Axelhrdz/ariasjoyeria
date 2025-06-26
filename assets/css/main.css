@@ -37,6 +37,7 @@
   }
   .title{
     font-size: 2rem;
+    text-align: center;
   }
   .rings {
     display: block;
@@ -53,6 +54,9 @@
   }
   .linkText:hover{
     color: #ffc81e;
+  }
+  .ticker{
+    text-align: center;
   }
 
 
