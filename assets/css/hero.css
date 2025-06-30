@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* Minimal Reset */
+:root{
+    --site-bg-color: #fffefb;
+    --text-color: #000;
+}
+
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "Aboreto", system-ui;
+  line-height: 1.6;
+  background-color: var(--site-bg-color);
+  color: var(--text-color);
+}
+
+/* nav */
+.nav{
+  background-color: #222;
+  margin: 0 !important;
+}
+
+
+.mainContainer{
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* hero container */
+.heroContainer{
+  height: 100vh;
+}
+.nav-item-1 a{
+  text-decoration: none;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: 1.4fr 1fr;
+  /* gap: 10px; space between items */
+  /* padding: 10px; */
+  height: 100%;
+}
+
+.grid-item {
+  /* background-color: #ccc; */
+  /* padding: 20px; */
+  text-align: center;
+  /* border: 1px solid #999; */
+  overflow: hidden;
+}
+
+.item1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item1 h1{
+  font-size: 5rem;
+  text-align: left;
+}
+
+.item4{
+  text-align: left;
+}
+.item4 button{
+  border: none;
+  border-radius: 2px;
+  font-size: 1.3rem;
+  font-family: "Arsenal", sans-serif;
+  font-weight: 300;
+  margin-top: 2rem;
+  background-color: #BA8C6D;
+  color: #fff;
+  padding: 0.5em 1em;
+  transition: all 0.5s;
+}
+.item4 button:hover{
+  background-color: #7C5D48;
+}
+
+
+#slider-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper {
+  height: 100%;
+}
+
+.swiper-slide {
+  height: 100%;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+/* responsive */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;         /* Stack items vertically */
+    grid-template-rows: repeat(3, 1fr); /* 4 rows, one for each item */
+    padding: 5px;
+  }
+
+  .item1 h1 {
+    font-size: 2.5rem; /* Scale down for smaller screens */
+    text-align: center;
+  }
+
+  .item4 {
+    text-align: center;
+  }
+
+  .item4 button {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .swiper,
+  .swiper-slide {
+    height: 300px; /* Or any fixed height that looks good on phones */
+  }
+
+  .swiper-slide img {
+    object-fit: cover;
+  }
+
+  .item3{
+    display: none;
+  }
+  .item4{
+    margin-top: 4rem;
+  }
+}
