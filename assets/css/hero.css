@@ -19,10 +19,10 @@ html, body {
 }
 
 /* nav */
-.nav{
+/* .nav{
   background-color: #222;
   margin: 0 !important;
-}
+} */
 
 
 .mainContainer{
@@ -35,9 +35,9 @@ html, body {
 .heroContainer{
   height: 100vh;
 }
-.nav-item-1 a{
+/* .nav-item-1 a{
   text-decoration: none;
-}
+} */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columns */

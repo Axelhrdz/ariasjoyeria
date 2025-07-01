@@ -21,6 +21,32 @@ html, body {
   }
 
 
+  /* nav */
+  .nav{
+    background-color: #222;
+    color: #fff;
+    margin: 0 !important;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  .navLinks{
+    display: flex;
+    margin-left: 2rem;
+    gap: 2rem;
+    font-family: "Arsenal", sans-serif;
+  }
+  .navLinks a{
+    text-decoration: none;
+    color: #fff;
+  }
+  .navLinks a:hover{
+    color: #7C5D48;
+  }
+  .nav-item-1 a{
+    text-decoration: none;
+  }
+
   /* index/hero page */
   .heroMain{
     display: flex;

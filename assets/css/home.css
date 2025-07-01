@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* Minimal Reset */
+:root{
+    --site-bg-color: #fffefb;
+    --text-color: #000;
+}
+
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "Aboreto", system-ui;
+  line-height: 1.6;
+  background-color: var(--site-bg-color);
+  color: var(--text-color);
+}
+
+.btn{
+    border: none;
+    border-radius: 2px;
+    font-size: 1.2rem;
+    /* font-family: "Arsenal", sans-serif;s */
+    font-weight: 300;
+    margin-top: 2rem;
+    background-color: #BA8C6D;
+    color: #fff;
+    padding: 0.5em 1.4em;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+.btn:hover{
+    color: #fff;
+    background-color: #7C5D48;
+}
+.btnSecondary{
+    text-decoration: none;
+    border: 2px solid #BA8C6D;
+    padding: 0.5rem 1.4rem;
+    color: #BA8C6D;
+}
+.btnSecondary:hover{
+    background-color: #BA8C6D;
+    color: #fff;
+    font-weight: 800;
+}
+
+/* main container */
+.mainContainer{
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+.content{
+    max-width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+
+
+/* heading */
+.heading{
+    background-image: url('/assets/img/home/heading-image.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 20em;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.heading h1{
+    font-weight: 600;
+}
+.headingDesc{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+
+
+/* prod Heading */
+.prodHeading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4em 0;
+    gap: 1rem;
+}
+
+
+
+/* products */
+.products{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.products button{
+    font-size: 0.8rem;
+}
+.card{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-rows: auto; */
+    height: auto;
+    gap: 1rem;
+    border: none;
+}
+.cardItem{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 500px;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 3fr 1fr 1fr;
+    padding: 1rem;
+}
+.image{
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+}
+.image img{
+    /* width: 100%;
+    height: 100%; */
+    object-fit: contain;
+}
+.desc, .detalles{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+
+/* .card img{
+    width: 100%;
+    height: auto;
+    display: block;
+} */
+
+
+
+/* about section */
+.separator{
+    color: #BA8C6D;
+}
+.aboutSection{
+    height: 700px;
+    margin-bottom: 5em;
+    /* width: auto; */
+}
+.aboutImg{
+    width: 50%;
+    /* background-color: #ccc; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: block;
+    overflow: hidden;
+    background-size: contain; */
+}
+.imageContainer{
+    width: 70%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+/* .imageContainer img{
+    width: 100%;
+    object-fit: contain;
+} */
+.aboutContent{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding-right: 3rem;
+}
+.abouText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 3rem;
+}
+.aboutSection{
+    display: flex;
+}
+.aboutImg img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* contact section */
+.contactContainer{
+    display: flex;
+    justify-content: center;
+    
+}
+.contact{
+    width: 700px;
+    height: auto;
+    gap: 3rem;
+    /* background-color: #ccc; */
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 5px;
+    padding: 2rem;
+    border: 1px solid #ccc;
+}
+.contHeader{
+    /* font-family: "Arsenal", sans-serif; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.contHeader h3{
+    font-weight: 600;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+    font-family: "Arsenal", sans-serif;
+}
+#form input{
+    border: none;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#form textarea{
+    border: none;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 200px;
+}
+.inputDiv{
+    display: flex;
+    flex-direction: column;
+}
+.whatsapp{
+    font-family: "Arsenal", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+.whatsInfo{
+    font-size: 1.2rem;
+}
+.whatsBtn{
+    background-color: #7C5D48;
+    color: #fff;
+    border: none;
+    padding: 0.3rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.5s;
+    align-self: center;
+}
+.whatsBtn:hover{
+    scale: 1.2;
+    background-color: #21C063;
+}
+
+
+/* footer */
+.footer{
+    font-family: "Arsenal", sans-serif;
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    gap: 3rem;
+}
+.footer h1{
+    font-weight: bold;
+}
+.footer input{
+    border: none;
+    /* padding: 1rem; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 40px;
+    width: 100%;
+}
+.inputFooter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    gap: 0.5rem;
+}
+.inputs{
+    display: flex;
+    width: 90%;
+}
+.btn-footer{
+    padding: 0 1rem;
+    height: 40px;
+    margin-top: 0;
+}
+.inputDesc{
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+.spanFooter{
+    font-size: 1.4rem;
+}
+
+
+/* social links */
+.social{
+    text-align: right;
+}
+.social i{
+    font-size: 2rem;
+    color: #BA8C6D;
+}
+
