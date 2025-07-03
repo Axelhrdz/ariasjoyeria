@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: cmsTest
+
+media_folder: "assets/img"       # Carpeta donde se guardan imágenes
+public_folder: "/assets/img"    # Ruta pública de imágenes
+
+collections:
+  - name: "productos"
+    label: "Productos"
+    folder: "data/productos"    # Carpeta de archivos .md
+    create: true
+    fields:
+      - { name: "nombre", label: "Nombre", widget: "string" }
+      - { name: "precio", label: "Precio", widget: "number" }
+      - { name: "descripcion", label: "Descripción", widget: "text" }
+      - { name: "imagen", label: "Imagen", widget: "image" }
