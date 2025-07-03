@@ -15,3 +15,4 @@ collections:
       - { label: "Nombre", name: "title", widget: "string" }
       - { label: "Fecha", name: "date", widget: "datetime" }
       - { label: "Descripción", name: "body", widget: "markdown" }
+      - { label: "Imagen", name: "image", widget: "image" }
