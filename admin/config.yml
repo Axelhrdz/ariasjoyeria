@@ -1,17 +1,17 @@
 backend:
   name: git-gateway
-  branch: main  # La rama que usas en GitHub/GitLab
+  branch: main  # ✅ ahora trabajas en main
 
-media_folder: "assets/img"  # Carpeta donde se guardarán las imágenes
-public_folder: "/assets/img/products"  # Ruta pública para las imágenes
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
 
 collections:
   - name: "productos"
     label: "Productos"
-    folder: "data/productos"  # Carpeta donde se guardarán los productos (en formato .md o .json)
+    folder: "assets/data/productos"
     create: true
+    slug: "{{slug}}"
     fields:
-      - { name: "nombre", label: "Nombre", widget: "string" }
-      - { name: "precio", label: "Precio", widget: "number" }
-      - { name: "descripcion", label: "Descripción", widget: "text" }
-      - { name: "imagen", label: "Imagen", widget: "image" }
+      - { label: "Nombre", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Descripción", name: "body", widget: "markdown" }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mis Productos</title>
+</head>
+<body>
+  <h1>Lista de productos</h1>
+  <div id="productos-container"></div>
+
+  <!-- Cargar marked.js -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    // Lista de archivos que quieres cargar
+    const archivos = [
+      "assets/data/productos/map-nombre-cadena-precio-300-descripcion-cadena-de-oro-imagen-assets-img-products-whatsapp-image-2025-06-20-at-1-17-07-pm-jpeg.md", // Reemplaza con los nombres reales
+      "assets/data/productos/archivo.md"
+    ];
+
+    const contenedor = document.getElementById("productos-container");
+
+    async function cargarProductos() {
+      for (const archivo of archivos) {
+        try {
+          const res = await fetch(archivo);
+          const contenido = await res.text();
+          const html = marked.parse(contenido);
+
+          const seccion = document.createElement("article");
+          seccion.innerHTML = html;
+          contenedor.appendChild(seccion);
+        } catch (error) {
+          console.error("Error al cargar producto:", archivo, error);
+        }
+      }
+    }
+
+    cargarProductos();
+  </script>
+</body>
+</html>
