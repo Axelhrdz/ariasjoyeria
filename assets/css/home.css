@@ -17,6 +17,20 @@ html, body {
   background-color: var(--site-bg-color);
   color: var(--text-color);
 }
+a{
+    text-decoration: none;
+    color: black;
+}
+.titleClass{
+    font-size: 2rem;
+    font-weight: 900;
+}
+.textClass{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #7e7e7e;
+    text-align: center;
+}
 
 .btn{
     border: none;
@@ -63,6 +77,7 @@ html, body {
 
 
 
+
 /* heading */
 .heading{
     background-image: url('/assets/img/home/heading-image.png');
@@ -83,6 +98,7 @@ html, body {
 .headingDesc{
     font-size: 1.5rem;
     font-weight: 400;
+    text-align: center;
 }
 
 
@@ -104,6 +120,7 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    padding: 0 2rem;
 }
 .products button{
     font-size: 0.8rem;
@@ -123,7 +140,7 @@ html, body {
     height: 500px;
     text-align: center;
     display: grid;
-    grid-template-rows: 3fr 1fr 1fr;
+    grid-template-rows: 5fr 1fr 1fr;
     padding: 1rem;
 }
 .image{
@@ -155,9 +172,11 @@ html, body {
     color: #BA8C6D;
 }
 .aboutSection{
-    height: 700px;
+    height: 650px;
     margin-bottom: 5em;
+    padding: 0 2rem;
     /* width: auto; */
+    /* opacity: 100% !important; */
 }
 .aboutImg{
     width: 50%;
@@ -184,14 +203,15 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
     /* align-items: center; */
-    padding-right: 3rem;
+    /* padding-right: 3rem; */
+    text-align: center;
 }
 .abouText{
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    gap: 3rem;
+    gap: 2rem;
 }
 .aboutSection{
     display: flex;
@@ -205,78 +225,70 @@ html, body {
 
 
 /* contact section */
-.contactContainer{
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: Arsenal;
+}
+.contact h1{
+    margin-bottom: 2rem;
+}
+.primary-container{
+    display: flex;
+}
+#contactLink{
+    transition: all 0.3s;
+}
+#contactLink:hover{
+    scale: 1.1;
+    color: #7C5D48;
+}
+.primary-container div{
+    width: 500px;
+    height: 400px;
     display: flex;
     justify-content: center;
-    
-}
-.contact{
-    width: 700px;
-    height: auto;
-    gap: 3rem;
-    /* background-color: #ccc; */
-    margin-top: 5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border-radius: 5px;
-    padding: 2rem;
-    border: 1px solid #ccc;
-}
-.contHeader{
-    /* font-family: "Arsenal", sans-serif; */
+    align-items: center;
     text-align: center;
+    padding: 2rem;
+    font-size: 1.4rem;
+    gap: 1rem;
+}
+.primary-container i{
+    font-size: 2.5rem;
+    color: #BA8C6D;
+}
+.secondary-container{
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row-reverse;
 }
-.contHeader h3{
-    font-weight: 600;
-}
-#form{
+.secondary-container div{
+    width: 500px;
+    height: 400px;
     display: flex;
-    flex-direction: column;
-    font-family: "Arsenal", sans-serif;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.4rem;
+    gap: 1rem;
 }
-#form input{
-    border: none;
-    padding: 1rem;
+.secondary-container i{
+    font-size: 2.5rem;
+    color: #BA8C6D;
+}
+.prim-item{
+    /* background-color: #ccc; */
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-#form textarea{
-    border: none;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    height: 200px;
-}
-.inputDiv{
-    display: flex;
-    flex-direction: column;
-}
-.whatsapp{
-    font-family: "Arsenal", sans-serif;
-    display: flex;
-    flex-direction: column;
-}
-.whatsInfo{
-    font-size: 1.2rem;
-}
-.whatsBtn{
-    background-color: #7C5D48;
-    color: #fff;
-    border: none;
-    padding: 0.3rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    transition: all 0.5s;
-    align-self: center;
-}
-.whatsBtn:hover{
-    scale: 1.2;
-    background-color: #21C063;
-}
+/* .second-item{
+    background-color: red;
+} */
+
 
 
 /* footer */
@@ -313,7 +325,7 @@ html, body {
 }
 .inputs{
     display: flex;
-    width: 90%;
+    width: 400px;
 }
 .btn-footer{
     padding: 0 1rem;
@@ -328,7 +340,8 @@ html, body {
     justify-content: center;
 }
 .spanFooter{
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
+    text-align: center;
 }
 
 
@@ -340,4 +353,390 @@ html, body {
     font-size: 2rem;
     color: #BA8C6D;
 }
+
+
+
+
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet styles (768px to 1024px) */
+@media (max-width: 1024px) {
+    .content {
+      max-width: 90%;
+    }
+    
+    .card {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .aboutContent {
+      padding-right: 2rem;
+    }
+    .aboutContent .titleClass{
+        font-size: 1.5rem;
+    }
+    .abouText span{
+        font-size: 0.8rem;
+    }
+    .abouText .btn{
+        font-size: 1rem;
+    }
+    
+    .primary-container div,
+    .secondary-container div {
+      width: 400px;
+      height: 350px;
+      font-size: 1.2rem;
+    }
+    
+    .footer {
+      width: 50%;
+    }
+  }
+  
+  /* Mobile Large (768px and below) */
+  @media (max-width: 768px) {
+    
+    /* Typography adjustments */
+    .titleClass {
+      font-size: 1.8rem;
+    }
+    
+    .textClass {
+      font-size: 0.9rem;
+    }
+    
+    /* Main container */
+    .mainContainer {
+      height: auto;
+    }
+    
+    .content {
+      max-width: 100%;
+      gap: 3rem;
+    }
+    
+    /* Heading section */
+    .heading {
+      height: 20em;
+      padding: 2rem 1rem;
+      background-size: cover;
+    }
+    
+    .heading h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+    
+    .headingDesc {
+      font-size: 1.2rem;
+      padding: 0 1rem;
+    }
+    
+    /* Products heading */
+    .prodHeading {
+      padding: 3em 1rem;
+      text-align: center;
+    }
+    
+    /* Products grid */
+    .card {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .cardItem {
+      height: 400px;
+      padding: 0.8rem;
+    }
+    
+    .cardItem .btnSecondary {
+      padding: 0.4rem 1rem;
+      font-size: 0.7rem;
+    }
+    
+    /* About section */
+    .aboutSection {
+      flex-direction: column;
+      height: auto;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .aboutImg,
+    .aboutContent {
+      width: 100%;
+    }
+    
+    .aboutContent {
+      padding-right: 0;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    
+    .imageContainer {
+      width: 90%;
+    }
+    
+    .abouText {
+      /* gap: 1.5rem; */
+    }
+    
+    /* Contact section */
+    .contact {
+      gap: 1rem;
+    }
+    
+    .primary-container,
+    .secondary-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .primary-container div,
+    .secondary-container div {
+      width: 100%;
+      max-width: 400px;
+      height: 300px;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .primary-container i,
+    .secondary-container i {
+      font-size: 2rem;
+    }
+    .second-item{
+        display: none !important;
+    }
+    
+    /* Footer */
+    .footer {
+      width: 90%;
+      height: auto;
+      padding: 3rem 1rem;
+      gap: 2rem;
+    }
+    
+    .inputs {
+      width: 100%;
+      max-width: 350px;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .btn-footer {
+      width: 100%;
+      margin-top: 0;
+    }
+    
+    /* Social */
+    .social {
+      text-align: center;
+      padding: 2rem 0;
+    }
+  }
+  
+  /* Mobile Medium (480px and below) */
+  @media (max-width: 480px) {
+    
+    /* Typography */
+    .titleClass {
+      font-size: 1.6rem;
+    }
+    
+    .textClass {
+      font-size: 0.85rem;
+    }
+    
+    /* Content */
+    .content {
+      max-width: 98%;
+      gap: 2.5rem;
+    }
+    
+    /* Heading */
+    .heading {
+      height: 20em;
+      gap: 1.5rem;
+    }
+    
+    .heading h1 {
+      font-size: 1.8rem;
+    }
+    
+    .headingDesc {
+      font-size: 1rem;
+    }
+    
+    /* Products */
+    .card {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .cardItem {
+      height: 350px;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    
+    /* About section */
+    .imageContainer {
+      width: 100%;
+    }
+    
+    .aboutContent .titleClass {
+      font-size: 1.5rem;
+    }
+    
+    .abouText span {
+      font-size: 0.9rem;
+    }
+    
+    /* Contact */
+    .primary-container div,
+    .secondary-container div {
+      max-width: 100%;
+      height: 250px;
+      font-size: 1rem;
+      padding: 1.5rem;
+    }
+    
+    .primary-container i,
+    .secondary-container i {
+      font-size: 1.8rem;
+    }
+    
+    /* Footer */
+    .footer {
+      width: 95%;
+      padding: 2rem 1rem;
+    }
+    
+    .inputs {
+      max-width: 100%;
+    }
+    
+    .footer input {
+      padding: 0.8rem;
+    }
+    
+    .btn-footer {
+      padding: 0.8rem 1rem;
+      height: auto;
+    }
+  }
+  
+  /* Mobile Small (360px and below) */
+  @media (max-width: 360px) {
+    
+    .heading h1 {
+      font-size: 1.6rem;
+    }
+    
+    .headingDesc {
+      font-size: 0.9rem;
+    }
+    
+    .cardItem {
+      height: 320px;
+    }
+    
+    .primary-container div,
+    .secondary-container div {
+      height: 220px;
+      font-size: 0.9rem;
+      padding: 1rem;
+    }
+    
+    .titleClass {
+      font-size: 1.4rem;
+    }
+    
+    .btn {
+      font-size: 1rem;
+      padding: 0.6em 1.2em;
+    }
+  }
+  
+  /* Landscape orientation for mobile */
+  @media (max-width: 768px) and (orientation: landscape) {
+    
+    .heading {
+      height: 10em;
+    }
+    
+    .aboutSection {
+      flex-direction: row;
+    }
+    
+    .aboutImg,
+    .aboutContent {
+      width: 50%;
+    }
+    
+    .aboutContent {
+      padding-left: 2rem;
+      text-align: left;
+    }
+    
+    .primary-container,
+    .secondary-container {
+      flex-direction: row;
+    }
+    
+    .primary-container div,
+    .secondary-container div {
+      width: 50%;
+      height: 200px;
+    }
+  }
+  
+  /* Ensure images are always responsive */
+  @media (max-width: 768px) {
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Touch-friendly buttons */
+    .btn,
+    .btnSecondary {
+      min-height: 44px;
+      touch-action: manipulation;
+    }
+    
+    /* Prevent zoom on input focus (iOS) */
+    input,
+    textarea {
+      font-size: 16px;
+    }
+    
+    /* Better spacing for mobile */
+    .separator {
+      margin: 2rem 0;
+    }
+  }
+  
+  /* High DPI displays */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .heading {
+      background-size: cover;
+    }
+  }
+
+
+
+
+
+
 
