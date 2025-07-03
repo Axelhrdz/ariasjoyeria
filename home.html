@@ -3,39 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <title>Mis Productos</title>
+
+
+  
+  <style>
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 1rem;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+
 </head>
 <body>
   <h1>Lista de productos</h1>
-  <div id="productos-container"></div>
+  <div id="productos-container" class="grid"></div>
 
   <!-- Cargar marked.js -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gray-matter@4.0.3/dist/gray-matter.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <script>
-    // Lista de archivos que quieres cargar
-    const archivos = [
-      // Reemplaza con los nombres reales
-      "assets/data/productos/testing.md"
-    ];
+    function parseFrontmatter(content) {
+        const match = /^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/m.exec(content);
+        if (!match) return { data: {}, content };
 
-    const contenedor = document.getElementById("productos-container");
+        const yaml = match[1];
+        const body = match[2];
 
-    async function cargarProductos() {
-      for (const archivo of archivos) {
-        try {
-          const res = await fetch(archivo);
-          const contenido = await res.text();
-          const html = marked.parse(contenido);
+        const data = {};
+        yaml.split('\n').forEach(line => {
+            const [key, ...rest] = line.split(':');
+            data[key.trim()] = rest.join(':').trim();
+        });
 
-          const seccion = document.createElement("article");
-          seccion.innerHTML = html;
-          contenedor.appendChild(seccion);
-        } catch (error) {
-          console.error("Error al cargar producto:", archivo, error);
-        }
-      }
+        return { data, content: body };
     }
 
+
+
+    async function cargarProductos() {
+      const contenedor = document.getElementById("productos-container");
+  
+      // Paso 1: Obtener lista de archivos manualmente (ver siguiente punto para automatizarlo)
+      const archivos = [
+        "assets/data/productos/testing.md",
+        "assets/data/productos/new-prod.md"
+        // Agrega más productos aquí o automatiza
+      ];
+  
+      for (const archivo of archivos) {
+        const res = await fetch(archivo);
+        const texto = await res.text();
+  
+        const parsed = parseFrontmatter(texto);
+
+
+         // Separar frontmatter + contenido
+        const htmlContenido = marked.parse(parsed.content);
+  
+        const card = document.createElement("div");
+        card.classList.add("card");
+  
+        card.innerHTML = `
+          <img src="${parsed.data.image}" alt="${parsed.data.title}">
+          <h2>${parsed.data.title}</h2>
+          <p><em>${new Date(parsed.data.date).toLocaleDateString()}</em></p>
+          <div>${htmlContenido}</div>
+        `;
+  
+        contenedor.appendChild(card);
+      }
+    }
+  
     cargarProductos();
   </script>
 </body>
