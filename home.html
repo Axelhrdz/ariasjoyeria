@@ -57,34 +57,40 @@
     async function cargarProductos() {
       const contenedor = document.getElementById("productos-container");
   
-      // Paso 1: Obtener lista de archivos manualmente (ver siguiente punto para automatizarlo)
-      const archivos = [
-        "assets/data/productos/testing.md",
-        "assets/data/productos/testong02.md"
-        // Agrega más productos aquí o automatiza
-      ];
-  
+      // // Paso 1: Obtener lista de archivos manualmente (ver siguiente punto para automatizarlo)
+      // const archivos = [
+      //   "assets/data/productos/testing.md",
+      //   "assets/data/productos/testong02.md"
+      //   // Agrega más productos aquí o automatiza
+      // ];
+
+
+      //implementacion con .json
+      const res = await fetch("assets/data/productos/productos.json");
+      const archivos = await res.json();
+
       for (const archivo of archivos) {
-        const res = await fetch(archivo);
-        const texto = await res.text();
-  
-        const parsed = parseFrontmatter(texto);
+        try {
+          const res = await fetch(archivo);
+          const texto = await res.text();
 
+          const parsed = parseFrontmatter(texto);
+          const htmlContenido = marked.parse(parsed.content);
 
-         // Separar frontmatter + contenido
-        const htmlContenido = marked.parse(parsed.content);
-  
-        const card = document.createElement("div");
-        card.classList.add("card");
-  
-        card.innerHTML = `
-          <img src="${parsed.data.image}" alt="${parsed.data.title}">
-          <h2>${parsed.data.title}</h2>
-          <p><em>${new Date(parsed.data.date).toLocaleDateString()}</em></p>
-          <div>${htmlContenido}</div>
-        `;
-  
-        contenedor.appendChild(card);
+          const card = document.createElement("div");
+          card.classList.add("card");
+
+          card.innerHTML = `
+            <img src="${parsed.data.image}" alt="${parsed.data.title}">
+            <h2>${parsed.data.title}</h2>
+            <p><em>${new Date(parsed.data.date).toLocaleDateString()}</em></p>
+            <div>${htmlContenido}</div>
+          `;
+
+          contenedor.appendChild(card);
+        } catch (err) {
+          console.error("Error cargando producto:", archivo, err);
+        }
       }
     }
   
