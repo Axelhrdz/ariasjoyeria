@@ -103,8 +103,8 @@
 
 
             <!-- products view -->
-            <h1>Lista de productos</h1>
-            <div id="productos-container" class="grid"></div>
+            <!-- <h1 style="text-align: center;">Lista de productos</h1> -->
+            <div id="productos-container" class="products"></div>
         
 
 
@@ -291,8 +291,15 @@
       for (const archivo of archivos) {
         try {
           const res = await fetch(archivo);
-          const texto = await res.text();
 
+          //Si el archivo no existe
+          if(!res.ok){
+            console.warn(`❌ Archivo no encontrado: ${archivo}`);
+            continue;
+          }  
+
+
+          const texto = await res.text();
           const parsed = parseFrontmatter(texto);
           const htmlContenido = marked.parse(parsed.content);
 
@@ -300,9 +307,17 @@
           card.classList.add("card");
 
           card.innerHTML = `
-            <img src="${parsed.data.image}" alt="${parsed.data.title}">
-            <h2>${parsed.data.title}</h2>
-            <p><em>${new Date(parsed.data.date).toLocaleDateString()}</em></p>
+            <div class="cardItem">
+                <div class="image">
+                    <img src="${parsed.data.image}" alt="${parsed.data.title}">
+                </div>
+                <div class="desc">
+                    <h2>${parsed.data.title}</h2>
+                    </div>
+                <div class="detalles">
+                    <p><em>${new Date(parsed.data.date).toLocaleDateString()}</em></p>
+                </div>
+            </div>
             
           `;
 

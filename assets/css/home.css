@@ -118,7 +118,7 @@ a{
 .products{
     border: none;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 2rem;
     padding: 0 2rem;
 }
@@ -128,7 +128,7 @@ a{
 .card{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     /* grid-template-rows: auto; */
     height: auto;
     gap: 1rem;
