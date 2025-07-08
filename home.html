@@ -4,7 +4,25 @@
   <meta charset="UTF-8" />
   <title>Mis Productos</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+
+    <!-- scroll animations -->
+
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+
+    <!-- ADD THIS AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
   <style>
     .grid {
@@ -27,8 +45,209 @@
 
 </head>
 <body>
-  <h1>Lista de productos</h1>
-  <div id="productos-container" class="grid"></div>
+
+    <div class="mainContainerHome">
+        <!-- nav -->
+        <nav class="nav">
+            <div class="nav-item-1">
+                <a href="index.html">
+                    <img src="/assets/img/common/arias_logo.png" alt="nav_logo" width="64">
+                    <span style="color: white;">Arias Joyeria</span>
+                </a>
+            </div>
+
+            <div class="navLinks">
+                <div class="item2">
+                    <a href="">
+                        <span>Inicio</span>
+                    </a>
+                </div>
+                <div class="item3">
+                    <a href="">
+                        <span>Acerca de nosotros</span>
+                    </a>
+                </div>
+                <div class="item4">
+                    <a href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
+                        <span>OBTENER COTIZACION</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+        <div class="content">
+            <!-- heading -->
+            <div class="heading">
+                <h1>Arias Joyeria</h1>
+                <span class="headingDesc">Descubre nuestros productos y obten el mejor regalo para 
+                una ocasion especial</span>
+    
+                <a href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
+                    <button class="btn">Obtener cotizacion</button>
+                </a>
+            </div>
+
+
+            <!-- productos heading -->
+            <div class="prodHeading">
+                <h1 class="titleClass">Nuestros productos</h1>
+                <span class="prodDesc textClass">Descubre nuestra exclusiva colección de joyas en oro italiano y nacional, diseñadas para resaltar tu estilo con elegancia y distinción.</span>
+                <a href="#" class="btnSecondary">
+                    Ver todos
+                </a>
+            </div>
+
+
+            <!-- products view -->
+            <h1>Lista de productos</h1>
+            <div id="productos-container" class="grid"></div>
+        
+
+
+            <!-- about section -->
+            <hr class="separator">
+            <div class="aboutSection">
+                <div class="aboutImg">
+                    <div class="imageContainer">
+                        <img src="assets/img/home/image.png" alt="about_image">
+                    </div>
+                </div>
+                <div class="aboutContent">
+                    <h1 class="titleClass">Calidad por el precio que pagas</h1>
+                    <div class="abouText textClass">
+                        <span>En nuestra joyería, nos apasiona ofrecer piezas únicas que combinan elegancia, calidad y un precio justo. Nos especializamos en la venta de oro italiano y nacional, cuidadosamente seleccionados para brindarte lo mejor en diseño y durabilidad.</span>
+                        <span>Cada joya que ofrecemos refleja nuestro compromiso con la excelencia, ya sea que busques un detalle especial para un regalo o una pieza significativa para ti. Creemos que el lujo debe estar al alcance de todos, por eso trabajamos para ofrecerte los precios más competitivos sin comprometer la calidad.</span>
+                        <span>Confía en nosotros para acompañarte en tus momentos más importantes con piezas que duran para toda la vida.</span>
+
+                    </div>
+                    <button class="btn">Mas Sobre nosotros</button>
+                </div>
+            </div>
+
+
+
+
+            <!-- contact section -->
+            <hr class="separator">
+            <div class="contact">
+                <h1 class="titleClass">Realiza tu pedido ya!</h1>
+                <div class="primary-container">
+                    <div class="prim-item">
+                        <a id="contactLink" href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>Envía captura del artículo o del producto que deseas cotizar y
+                            adquirir (por el momento solo manejamos vía Instagram)</span>
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="second-item invisble"></div>
+                </div>
+                <div class="secondary-container">
+                    <div class="prim-item">
+                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                        <span>Nos confirmas si el pago será por medio de transferencia,
+                        depósito o pago contra entrega (en piezas exclusivas sera
+                        necesario un anticipo del 50%)</span>
+                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                    </div>
+                    <div class="second-item invisble"></div>
+                </div>
+                <div class="primary-container">
+                    <div class="prim-item">
+                        <i class="fa-solid fa-receipt"></i>
+                        <span>
+                            Nos adjuntas el comprobante de pago con los siguientes
+                            datos: Nombre, Número de Teléfono y Dirección en la que
+                            será enviado o entregado (manejamos entregas personales
+                            en todo GDL y Zapopan)
+                            *Envios a todo México*
+                        </span>
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <div class="second-item invisble"></div>
+                </div>
+                <div class="secondary-container">
+                    <div class="prim-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>
+                            En un lapso de 1 o 5 días dependiendo la distancia y
+                            disponibilidad, tendrás tu producto
+                        </span>
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <div class="second-item invisble"></div>
+                </div>
+            </div>
+
+
+
+
+            <!-- <div class="contactContainer">
+                    <div class="contact">
+                        <div class="contHeader">
+                            <h3>Pregunta por nuestros productos</h1>
+                            <span>Informacion sobre nuestros productos, calidad, detalles stock disponible y precios, dejanos tus datos y nos comunicaremos a la brevedad</span>
+                        </div>
+                        <form action="" id="form">
+                            <div class="inputDiv">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" id="nombre">
+                            </div>
+                            <div class="inputDiv">
+                                <label for="correo">Correo electronico</label>
+                                <input type="email" name="correo" id="correo">
+                            </div>
+                            <div class="inputDiv">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea name="mensaje" id="mensaje" placeholder="Deja tu mensaje..."></textarea>
+                            </div>
+                            <input type="submit" name="contactoSubmit" id="contactoSubmit" class="btn">
+                        </form>
+
+                        <div class="whatsapp">
+                            <span class="whatsInfo">Mandanos un WhatsApp si lo prefieres!! o para cualquier duda y/o seguimiento de tu pedido</span>
+                            <button class="whatsBtn">
+                                <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i>
+                                Contactar
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
+
+            <!-- footer section -->
+            <hr class="separator">
+            <div class="footer">
+                <h1 class="titleClass">Enterate de lo nuevo</h1>
+                <div class="inputFooter">
+                    <span class="spanFooter textClass">Registra tu correo y enterate de las novedades y promociones</span>
+                    <div class="inputs">
+                        <input type="email" name="emailReg" id="emailReg" placeholder="ejemplo@email.com">
+                        <button class="btn btn-footer">Suscribir</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- social links -->
+            <div class="social">
+                <a href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+            </div>
+            <hr class="separator">
+
+
+        </div>
+
+
+    </div>
+
+
 
   <!-- Cargar marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/gray-matter@4.0.3/dist/gray-matter.min.js"></script>
