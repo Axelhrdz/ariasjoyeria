@@ -62,10 +62,10 @@ a{
 }
 
 /* main container */
-.mainContainer{
+/* .mainContainer{
     min-height: 100vh;
-    /* overflow: hidden; */
-}
+    overflow: hidden;
+} */
 
 .content{
     max-width: 85%;
@@ -408,9 +408,9 @@ a{
     }
     
     /* Main container */
-    .mainContainer {
+    /* .mainContainer {
       height: auto;
-    }
+    } */
     
     .content {
       max-width: 100%;
