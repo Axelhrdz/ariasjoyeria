@@ -1,427 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arias Joyeria</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/home.css">
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
-    />
-    <!-- scroll animations -->
+  <meta charset="UTF-8" />
+  <title>Mis Productos</title>
 
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
-
-    <!-- ADD THIS AOS CSS -->
-    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+  
+  <style>
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 1rem;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  </style>
 
 </head>
 <body>
-    
-    <div class="mainContainerHome">
-        <!-- nav -->
-        <nav class="nav">
-            <div class="nav-item-1">
-                <a href="index.html">
-                    <img src="/assets/img/common/arias_logo.png" alt="nav_logo" width="64">
-                    <span style="color: white;">Arias Joyeria</span>
-                </a>
-            </div>
+  <h1>Lista de productos</h1>
+  <div id="productos-container" class="grid"></div>
 
-            <div class="navLinks">
-                <div class="item2">
-                    <a href="">
-                        <span>Inicio</span>
-                    </a>
-                </div>
-                <div class="item3">
-                    <a href="">
-                        <span>Acerca de nosotros</span>
-                    </a>
-                </div>
-                <div class="item4">
-                    <a href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
-                        <span>OBTENER COTIZACION</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-
-
-        <div class="content">
-            <!-- heading -->
-            <div class="heading">
-                <h1>Arias Joyeria</h1>
-                <span class="headingDesc">Descubre nuestros productos y obten el mejor regalo para 
-                una ocasion especial</span>
-    
-                <a href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
-                    <button class="btn">Obtener cotizacion</button>
-                </a>
-            </div>
-
-
-            <!-- productos heading -->
-            <div class="prodHeading">
-                <h1 class="titleClass">Nuestros productos</h1>
-                <span class="prodDesc textClass">Descubre nuestra exclusiva colección de joyas en oro italiano y nacional, diseñadas para resaltar tu estilo con elegancia y distinción.</span>
-                <a href="#" class="btnSecondary">
-                    Ver todos
-                </a>
-            </div>
-
-
-            <!-- products view -->
-            <h1>Lista de productos</h1>
-            <div id="productos-container" class="grid"></div>
-
-
-
-             <!-- <div class="products" data-aos-duration="1000">
-                <div class="card">
-                    <div class="cardItem">
-                        <div class="image">
-                            <img src="assets/img/products/product_2.jpeg" alt="image_item">
-                        </div>
-                        <div class="desc">
-                            description
-                        </div>
-                        <div class="detalles">
-                            <a href="">
-                                <button class="btnSecondary">Ver detalles</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cardItem">
-                        <div class="image">
-                            <img src="assets/img/products/product_29.jpeg" alt="image_item">
-                        </div>
-                        <div class="desc">
-                            description
-                        </div>
-                        <div class="detalles">
-                            <a href="">
-                                <button class="btnSecondary">Ver detalles</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cardItem">
-                        <div class="image">
-                            <img src="assets/img/products/product_11.jpeg" alt="image_item">
-                        </div>
-                        <div class="desc">
-                            description
-                        </div>
-                        <div class="detalles">
-                            <a href="">
-                                <button class="btnSecondary">Ver detalles</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cardItem">
-                        <div class="image">
-                            <img src="assets/img/products/product_4.jpeg" alt="image_item">
-                        </div>
-                        <div class="desc">
-                            description
-                        </div>
-                        <div class="detalles">
-                            <a href="">
-                                <button class="btnSecondary">ver detalles</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="cardItem">
-                        <div class="image">
-                            <img src="assets/img/products/product_15.jpeg" alt="image_item">
-                        </div>
-                        <div class="desc">
-                            description
-                        </div>
-                        <div class="detalles">
-                            <a href="">
-                                <button class="btnSecondary">Ver detalles</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cardItem">
-                        <div class="image">
-                            <img src="assets/img/products/product_10.jpeg" alt="image_item">
-                        </div>
-                        <div class="desc">
-                            description
-                        </div>
-                        <div class="detalles">
-                            <a href="">
-                                <button class="btnSecondary">Ver detalles</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cardItem">
-                        <div class="image">
-                            <img src="assets/img/products/product_19.jpeg" alt="image_item">
-                        </div>
-                        <div class="desc">
-                            description
-                        </div>
-                        <div class="detalles">
-                            <a href="">
-                                <button class="btnSecondary">Ver detalles</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cardItem">
-                        <div class="image">
-                            <img src="assets/img/products/product_35.jpeg" alt="image_item">
-                        </div>
-                        <div class="desc">
-                            description
-                        </div>
-                        <div class="detalles">
-                            <a href="">
-                                <button class="btnSecondary">ver detalles</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-             </div> -->
-
-            <!-- about section -->
-            <hr class="separator">
-            <div class="aboutSection">
-                <div class="aboutImg">
-                    <div class="imageContainer">
-                        <img src="assets/img/home/image.png" alt="about_image">
-                    </div>
-                </div>
-                <div class="aboutContent">
-                    <h1 class="titleClass">Calidad por el precio que pagas</h1>
-                    <div class="abouText textClass">
-                        <span>En nuestra joyería, nos apasiona ofrecer piezas únicas que combinan elegancia, calidad y un precio justo. Nos especializamos en la venta de oro italiano y nacional, cuidadosamente seleccionados para brindarte lo mejor en diseño y durabilidad.</span>
-                        <span>Cada joya que ofrecemos refleja nuestro compromiso con la excelencia, ya sea que busques un detalle especial para un regalo o una pieza significativa para ti. Creemos que el lujo debe estar al alcance de todos, por eso trabajamos para ofrecerte los precios más competitivos sin comprometer la calidad.</span>
-                        <span>Confía en nosotros para acompañarte en tus momentos más importantes con piezas que duran para toda la vida.</span>
-
-                    </div>
-                    <button class="btn">Mas Sobre nosotros</button>
-                </div>
-            </div>
-
-
-
-
-            <!-- contact section -->
-             <hr class="separator">
-            <div class="contact">
-                <h1 class="titleClass">Realiza tu pedido ya!</h1>
-                <div class="primary-container">
-                    <div class="prim-item">
-                        <a id="contactLink" href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
-                            <i class="fa-solid fa-camera"></i>
-                            <span>Envía captura del artículo o del producto que deseas cotizar y
-                            adquirir (por el momento solo manejamos vía Instagram)</span>
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-                    <div class="second-item invisble"></div>
-                </div>
-                <div class="secondary-container">
-                    <div class="prim-item">
-                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
-                        <span>Nos confirmas si el pago será por medio de transferencia,
-                        depósito o pago contra entrega (en piezas exclusivas sera
-                        necesario un anticipo del 50%)</span>
-                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
-                    </div>
-                    <div class="second-item invisble"></div>
-                </div>
-                <div class="primary-container">
-                    <div class="prim-item">
-                        <i class="fa-solid fa-receipt"></i>
-                        <span>
-                            Nos adjuntas el comprobante de pago con los siguientes
-                            datos: Nombre, Número de Teléfono y Dirección en la que
-                            será enviado o entregado (manejamos entregas personales
-                            en todo GDL y Zapopan)
-                            *Envios a todo México*
-                        </span>
-                        <i class="fa-solid fa-truck"></i>
-                    </div>
-                    <div class="second-item invisble"></div>
-                </div>
-                <div class="secondary-container">
-                    <div class="prim-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>
-                            En un lapso de 1 o 5 días dependiendo la distancia y
-                            disponibilidad, tendrás tu producto
-                        </span>
-                        <i class="fa-solid fa-box-open"></i>
-                    </div>
-                    <div class="second-item invisble"></div>
-                </div>
-            </div>
-
-
-
-
-
-
-            <!-- <div class="contactContainer">
-                <div class="contact">
-                    <div class="contHeader">
-                        <h3>Pregunta por nuestros productos</h1>
-                        <span>Informacion sobre nuestros productos, calidad, detalles stock disponible y precios, dejanos tus datos y nos comunicaremos a la brevedad</span>
-                    </div>
-                    <form action="" id="form">
-                        <div class="inputDiv">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" id="nombre">
-                        </div>
-                        <div class="inputDiv">
-                            <label for="correo">Correo electronico</label>
-                            <input type="email" name="correo" id="correo">
-                        </div>
-                        <div class="inputDiv">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea name="mensaje" id="mensaje" placeholder="Deja tu mensaje..."></textarea>
-                        </div>
-                        <input type="submit" name="contactoSubmit" id="contactoSubmit" class="btn">
-                    </form>
-
-                    <div class="whatsapp">
-                        <span class="whatsInfo">Mandanos un WhatsApp si lo prefieres!! o para cualquier duda y/o seguimiento de tu pedido</span>
-                        <button class="whatsBtn">
-                            <i class="fa-brands fa-whatsapp" style="color: #ffffff;"></i>
-                            Contactar
-                        </button>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- footer section -->
-             <hr class="separator">
-            <div class="footer">
-                <h1 class="titleClass">Enterate de lo nuevo</h1>
-                <div class="inputFooter">
-                    <span class="spanFooter textClass">Registra tu correo y enterate de las novedades y promociones</span>
-                    <div class="inputs">
-                        <input type="email" name="emailReg" id="emailReg" placeholder="ejemplo@email.com">
-                        <button class="btn btn-footer">Suscribir</button>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- social links -->
-            <div class="social">
-                <a href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
-                    <i class="fa-brands fa-instagram"></i>
-
-                </a>
-            </div>
-            <hr class="separator">
-        </div>
-
-
-    </div>
-
-
-    <!-- Cargar marked.js -->
+  <!-- Cargar marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/gray-matter@4.0.3/dist/gray-matter.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 
-    <script>
-        function parseFrontmatter(content) {
-            const match = /^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/m.exec(content);
-            if (!match) return { data: {}, content };
+  <script>
+    function parseFrontmatter(content) {
+        const match = /^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/m.exec(content);
+        if (!match) return { data: {}, content };
 
-            const yaml = match[1];
-            const body = match[2];
+        const yaml = match[1];
+        const body = match[2];
 
-            const data = {};
-            yaml.split('\n').forEach(line => {
-                const [key, ...rest] = line.split(':');
-                data[key.trim()] = rest.join(':').trim();
-            });
-
-            return { data, content: body };
-        }
-
-
-
-        async function cargarProductos() {
-        const contenedor = document.getElementById("productos-container");
-    
-        // // Paso 1: Obtener lista de archivos manualmente (ver siguiente punto para automatizarlo)
-        // const archivos = [
-        //   "assets/data/productos/testing.md",
-        //   "assets/data/productos/testong02.md"
-        //   // Agrega más productos aquí o automatiza
-        // ];
-
-
-        //implementacion con .json
-        const res = await fetch("assets/data/productos/productos.json");
-        const archivos = await res.json();
-
-        for (const archivo of archivos) {
-            try {
-            const res = await fetch(archivo);
-            const texto = await res.text();
-
-            const parsed = parseFrontmatter(texto);
-            const htmlContenido = marked.parse(parsed.content);
-
-            const card = document.createElement("div");
-            card.classList.add("card");
-
-            card.innerHTML = `
-                <img src="${parsed.data.image}" alt="${parsed.data.title}">
-                <h2>${parsed.data.title}</h2>
-                <p><em>${new Date(parsed.data.date).toLocaleDateString()}</em></p>
-                <div>${htmlContenido}</div>
-            `;
-
-            contenedor.appendChild(card);
-            } catch (err) {
-            console.error("Error cargando producto:", archivo, err);
-            }
-        }
-        }
-    
-        cargarProductos();
-    </script>
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-
-    <!-- <script>
-        AOS.init({
-            duration: 1000, // Animation duration
-            once: true,     // Animation happens only once
-            offset: 100,    // Trigger animations 100px before element comes into view
-            easing: 'ease-in-out'
+        const data = {};
+        yaml.split('\n').forEach(line => {
+            const [key, ...rest] = line.split(':');
+            data[key.trim()] = rest.join(':').trim();
         });
-    </script> -->
-    
+
+        return { data, content: body };
+    }
+
+
+
+    async function cargarProductos() {
+      const contenedor = document.getElementById("productos-container");
+  
+      // // Paso 1: Obtener lista de archivos manualmente (ver siguiente punto para automatizarlo)
+      // const archivos = [
+      //   "assets/data/productos/testing.md",
+      //   "assets/data/productos/testong02.md"
+      //   // Agrega más productos aquí o automatiza
+      // ];
+
+
+      //implementacion con .json
+      const res = await fetch("assets/data/productos/productos.json");
+      const archivos = await res.json();
+
+      for (const archivo of archivos) {
+        try {
+          const res = await fetch(archivo);
+          const texto = await res.text();
+
+          const parsed = parseFrontmatter(texto);
+          const htmlContenido = marked.parse(parsed.content);
+
+          const card = document.createElement("div");
+          card.classList.add("card");
+
+          card.innerHTML = `
+            <img src="${parsed.data.image}" alt="${parsed.data.title}">
+            <h2>${parsed.data.title}</h2>
+            <p><em>${new Date(parsed.data.date).toLocaleDateString()}</em></p>
+            <div>${htmlContenido}</div>
+          `;
+
+          contenedor.appendChild(card);
+        } catch (err) {
+          console.error("Error cargando producto:", archivo, err);
+        }
+      }
+    }
+  
+    cargarProductos();
+  </script>
 </body>
 </html>
