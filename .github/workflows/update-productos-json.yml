@@ -1,0 +1,36 @@
+name: Actualizar productos.json
+
+on:
+  push:
+    branches:
+      - main  # or the branch Netlify CMS uses
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependencias (si tienes package.json)
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          fi
+
+      - name: Ejecutar script para generar productos.json
+        run: node generar-json.js
+
+      - name: Commit y push de productos.json actualizado
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add assets/data/productos/productos.json
+          git commit -m "🔄 Auto-update productos.json" || echo "Sin cambios"
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} HEAD:main
