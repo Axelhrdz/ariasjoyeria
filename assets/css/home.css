@@ -118,6 +118,7 @@ a{
 .products{
     border: none;
     display: flex;
+    align-items: center;
     /* flex-direction: column; */
     gap: 2rem;
     padding: 0 2rem;
@@ -126,31 +127,37 @@ a{
     font-size: 0.8rem;
 }
 .card{
-    width: 100%;
+  /* display: flex;
+  align-items: center; */
+    width: 350px;
     display: grid;
     grid-template-rows: repeat(1, 1fr);
-    /* grid-template-rows: auto; */
+    grid-template-rows: auto;
     height: auto;
     gap: 1rem;
     border: none;
 }
 .cardItem{
+    width: 100%;
     border-radius: 5px;
     border: 1px solid #ccc;
     height: 500px;
     text-align: center;
     display: grid;
-    grid-template-rows: 5fr 1fr 1fr;
+    grid-template-rows: 250px 1fr 1fr;
+    gap: 2rem;
     padding: 1rem;
 }
 .image{
+    /* height: 300px; */
+    width: 100%;
     overflow: hidden;
     background-position: center;
     background-size: contain;
 }
 .image img{
-    /* width: 100%;
-    height: 100%; */
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 .desc, .detalles{
