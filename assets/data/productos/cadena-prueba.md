@@ -1,5 +1,6 @@
 ---
 image: /assets/uploads/whatsapp-image-2025-06-20-at-1.16.35-pm.jpeg
+categoria: collar
 title: cadena prueba
 details: cade de prueba
 ---
