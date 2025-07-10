@@ -28,123 +28,103 @@
 
 
     <script>
-    function parseFrontmatter(content) {
-        const match = /^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/m.exec(content);
-        if (!match) return { data: {}, content };
-
-        const yaml = match[1];
-        const body = match[2];
-
-        const data = {};
-        yaml.split('\n').forEach(line => {
+        function parseFrontmatter(content) {
+          const match = /^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/m.exec(content);
+          if (!match) return { data: {}, content };
+      
+          const yaml = match[1];
+          const body = match[2];
+      
+          const data = {};
+          yaml.split('\n').forEach(line => {
             const [key, ...rest] = line.split(':');
             data[key.trim()] = rest.join(':').trim();
-        });
-
-        return { data, content: body };
-    }
-
-
-
-    //filter de productos
-    let productos = [];
-
-    async function cargarProductos() {
-      const res = await fetch("assets/data/productos/productos.json");
-      const rutas = await res.json();
-      const resultados = [];
-
-      for (const ruta of rutas) {
-        try {
-          const res = await fetch(ruta);
-          const texto = await res.text();
-          const parsed = matter(texto);
-          resultados.push(parsed);
-        } catch (err) {
-          console.warn("Error cargando:", ruta, err);
+          });
+      
+          return { data, content: body };
         }
-      }
-
-      productos = resultados;
-      generarBotonesDeFiltro();
-      renderizarProductos(productos); // Mostrar todos al inicio
-    }
-
-
-    function generarBotonesDeFiltro() {
-      const categorias = [...new Set(productos.map(p => p.data.category))];
-      const contenedor = document.getElementById("filtros");
-      contenedor.innerHTML = "";
-
-      const crearBoton = (texto, categoria) => {
-        const btn = document.createElement("button");
-        btn.textContent = texto;
-        btn.style.marginRight = "10px";
-        btn.onclick = () => {
-          const filtrados = categoria === "all"
-            ? productos
-            : productos.filter(p => p.data.category === categoria);
-          renderizarProductos(filtrados);
-        };
-        contenedor.appendChild(btn);
-      };
-
-      crearBoton("Todos", "all");
-      categorias.forEach(cat => crearBoton(cat, cat));
-    }
-
-
-
-
-
-
-    async function cargarProductos() {
-      const contenedor = document.getElementById("productos-container");
-
-      //implementacion con .json
-      const res = await fetch("assets/data/productos/productos.json");
-      const archivos = await res.json();
-
-      for (const archivo of archivos) {
-        try {
-          const res = await fetch(archivo);
-
-          //Si el archivo no existe
-          if(!res.ok){
-            console.warn(`❌ Archivo no encontrado: ${archivo}`);
-            continue;
-          }  
-
-
-          const texto = await res.text();
-          const parsed = parseFrontmatter(texto);
-          const htmlContenido = marked.parse(parsed.content);
-
-          const card = document.createElement("div");
-          card.classList.add("card");
-
-          card.innerHTML = `
-            <div class="cardItem">
+      
+        let productos = [];
+      
+        async function cargarProductos() {
+          const res = await fetch("assets/data/productos/productos.json");
+          const archivos = await res.json();
+          const resultados = [];
+      
+          for (const archivo of archivos) {
+            try {
+              const res = await fetch(archivo);
+              if (!res.ok) {
+                console.warn(`❌ Archivo no encontrado: ${archivo}`);
+                continue;
+              }
+      
+              const texto = await res.text();
+              const parsed = parseFrontmatter(texto); // or use `matter(texto)`
+              parsed.ruta = archivo; // optional: for debugging
+              resultados.push(parsed);
+            } catch (err) {
+              console.error("Error cargando producto:", archivo, err);
+            }
+          }
+      
+          productos = resultados;
+          generarBotonesDeFiltro();
+          renderizarProductos(productos);
+        }
+      
+        function generarBotonesDeFiltro() {
+          const categorias = [...new Set(productos.map(p => p.data.categoria))];
+          const contenedor = document.getElementById("filtros");
+          contenedor.innerHTML = "";
+      
+          const crearBoton = (texto, categoria) => {
+            const btn = document.createElement("button");
+            btn.textContent = texto;
+            btn.style.marginRight = "10px";
+            btn.onclick = () => {
+              const filtrados = categoria === "all"
+                ? productos
+                : productos.filter(p => p.data.categoria === categoria);
+              renderizarProductos(filtrados);
+            };
+            contenedor.appendChild(btn);
+          };
+      
+          crearBoton("Todos", "all");
+          categorias.forEach(cat => crearBoton(cat, cat));
+        }
+      
+        function renderizarProductos(lista) {
+          const contenedor = document.getElementById("productos-container");
+          contenedor.innerHTML = "";
+      
+          lista.forEach(parsed => {
+            const htmlContenido = marked.parse(parsed.content);
+            const card = document.createElement("div");
+            card.classList.add("card");
+      
+            card.innerHTML = `
+              <div class="cardItem">
                 <div class="image">
-                    <img src="${parsed.data.image}" alt="${parsed.data.title}">
+                  <img src="${parsed.data.image}" alt="${parsed.data.title}">
                 </div>
                 <div class="desc">
-                    <h2>${parsed.data.title}</h2>
-                    </div>
-                <div class="detalles">
-                    <p><em>${parsed.data.details}</p>
+                  <h2>${parsed.data.title}</h2>
                 </div>
-            </div>
-          `;
-
-          contenedor.appendChild(card);
-        } catch (err) {
-          console.error("Error cargando producto:", archivo, err);
+                <div class="detalles">
+                  <p><em>${parsed.data.details || ""}</em></p>
+                  <p><strong>Categoría:</strong> ${parsed.data.categoria || "Sin categoría"}</p>
+                </div>
+              </div>
+            `;
+      
+            contenedor.appendChild(card);
+          });
         }
-      }
-    }
-  
-    cargarProductos();
-  </script>
+      
+        cargarProductos();
+      </script>
+      
 </body>
 </html>
