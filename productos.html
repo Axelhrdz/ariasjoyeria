@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="/assets/css/home.css">
+</head>
+<body>
+    
+    <h1>Productos</h1>
+
+
+
+    <!-- prodcutos -->
+    <div id="filtros" style="margin-bottom: 1rem;"></div>
+    <div id="productos-container" class="products"></div>
+
+
+
+
+
+
+
+    <!-- Cargar marked.js -->
+    <script src="https://cdn.jsdelivr.net/npm/gray-matter@4.0.3/dist/gray-matter.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
+    <script>
+    function parseFrontmatter(content) {
+        const match = /^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/m.exec(content);
+        if (!match) return { data: {}, content };
+
+        const yaml = match[1];
+        const body = match[2];
+
+        const data = {};
+        yaml.split('\n').forEach(line => {
+            const [key, ...rest] = line.split(':');
+            data[key.trim()] = rest.join(':').trim();
+        });
+
+        return { data, content: body };
+    }
+
+
+
+    //filter de productos
+    let productos = [];
+
+    async function cargarProductos() {
+      const res = await fetch("assets/data/productos/productos.json");
+      const rutas = await res.json();
+      const resultados = [];
+
+      for (const ruta of rutas) {
+        try {
+          const res = await fetch(ruta);
+          const texto = await res.text();
+          const parsed = matter(texto);
+          resultados.push(parsed);
+        } catch (err) {
+          console.warn("Error cargando:", ruta, err);
+        }
+      }
+
+      productos = resultados;
+      generarBotonesDeFiltro();
+      renderizarProductos(productos); // Mostrar todos al inicio
+    }
+
+
+    function generarBotonesDeFiltro() {
+      const categorias = [...new Set(productos.map(p => p.data.category))];
+      const contenedor = document.getElementById("filtros");
+      contenedor.innerHTML = "";
+
+      const crearBoton = (texto, categoria) => {
+        const btn = document.createElement("button");
+        btn.textContent = texto;
+        btn.style.marginRight = "10px";
+        btn.onclick = () => {
+          const filtrados = categoria === "all"
+            ? productos
+            : productos.filter(p => p.data.category === categoria);
+          renderizarProductos(filtrados);
+        };
+        contenedor.appendChild(btn);
+      };
+
+      crearBoton("Todos", "all");
+      categorias.forEach(cat => crearBoton(cat, cat));
+    }
+
+
+
+
+
+
+    async function cargarProductos() {
+      const contenedor = document.getElementById("productos-container");
+
+      //implementacion con .json
+      const res = await fetch("assets/data/productos/productos.json");
+      const archivos = await res.json();
+
+      for (const archivo of archivos) {
+        try {
+          const res = await fetch(archivo);
+
+          //Si el archivo no existe
+          if(!res.ok){
+            console.warn(`❌ Archivo no encontrado: ${archivo}`);
+            continue;
+          }  
+
+
+          const texto = await res.text();
+          const parsed = parseFrontmatter(texto);
+          const htmlContenido = marked.parse(parsed.content);
+
+          const card = document.createElement("div");
+          card.classList.add("card");
+
+          card.innerHTML = `
+            <div class="cardItem">
+                <div class="image">
+                    <img src="${parsed.data.image}" alt="${parsed.data.title}">
+                </div>
+                <div class="desc">
+                    <h2>${parsed.data.title}</h2>
+                    </div>
+                <div class="detalles">
+                    <p><em>${parsed.data.details}</p>
+                </div>
+            </div>
+          `;
+
+          contenedor.appendChild(card);
+        } catch (err) {
+          console.error("Error cargando producto:", archivo, err);
+        }
+      }
+    }
+  
+    cargarProductos();
+  </script>
+</body>
+</html>
