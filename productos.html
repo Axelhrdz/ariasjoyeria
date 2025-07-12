@@ -116,9 +116,15 @@
                   <p><em>${parsed.data.details || ""}</em></p>
                   <p><strong>Categoría:</strong> ${parsed.data.categoria || "Sin categoría"}</p>
                 </div>
+                <a href="producto.html?id=${parsed.data.slug || getSlugFromPath(parsed.ruta)}">Ver más</a>
               </div>
             `;
       
+
+            function getSlugFromPath(path) {
+              return path.split('/').pop().replace('.md', '');
+            }
+
             contenedor.appendChild(card);
           });
         }

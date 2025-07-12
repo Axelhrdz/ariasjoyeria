@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Producto</title>
+  <script src="js/gray-matter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="producto-detalle">
+    <p>Cargando producto...</p>
+  </div>
+
+  <script>
+    async function cargarProducto() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      const contenedor = document.getElementById("producto-detalle");
+
+      if (!id) {
+        contenedor.innerHTML = `<p>Producto no especificado.</p>`;
+        return;
+      }
+
+      // Use absolute path to ensure correct file loading
+      const ruta = `/assets/data/productos/${id}.md`;
+      console.log(`Loading product from: ${ruta}`);
+
+      try {
+        const res = await fetch(ruta);
+        console.log(`Fetch response status: ${res.status}`);
+        
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
+        const texto = await res.text();
+        console.log(`Product content: ${texto}`);
+        
+        const parsed = matter(texto);
+        console.log(`Parsed frontmatter:`, parsed.data);
+        
+        const html = marked.parse(parsed.content);
+
+        contenedor.innerHTML = `
+          <h1>${parsed.data.title || 'Título no disponible'}</h1>
+          ${parsed.data.image ? `<img src="${parsed.data.image}" alt="${parsed.data.title || 'Imagen del producto'}" />` : ''}
+          <p><strong>Detalles:</strong> ${parsed.data.details || 'Detalles no disponibles'}</p>
+          ${parsed.data.date ? `<p><em>${new Date(parsed.data.date).toLocaleDateString()}</em></p>` : ''}
+          <div>${html}</div>
+          <p><a href="productos.html">← Volver a productos</a></p>
+        `;
+      } catch (err) {
+        console.error('Error:', err);
+        contenedor.innerHTML = `
+          <p>Producto no encontrado o no disponible.</p>
+          <p>Detalles del error: ${err.message}</p>
+          <p>URL intentada: ${ruta}</p>
+        `;
+      }
+    }
+
+    cargarProducto();
+  </script>
+</body>
+</html>
