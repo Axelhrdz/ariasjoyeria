@@ -12,7 +12,7 @@ html, body {
   padding: 0;
   height: 100%;
   overflow-x: hidden;
-  font-family: "Aboreto", system-ui;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   background-color: var(--site-bg-color);
   color: var(--text-color);
@@ -20,6 +20,9 @@ html, body {
 a{
     text-decoration: none;
     color: black;
+}
+.mainText{
+  font-family: Aboreto;
 }
 .titleClass{
     font-size: 2rem;
@@ -116,54 +119,74 @@ a{
 
 /* products */
 .products{
-    border: none;
-    display: flex;
-    align-items: center;
-    /* flex-direction: column; */
-    gap: 2rem;
-    padding: 0 2rem;
+  /* border: none; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
+  gap: 2rem;
+  padding: 0 2rem;
 }
 .products button{
     font-size: 0.8rem;
 }
-.card{
-  /* display: flex;
-  align-items: center; */
-    width: 350px;
-    display: grid;
-    grid-template-rows: repeat(1, 1fr);
-    grid-template-rows: auto;
-    height: auto;
-    gap: 1rem;
-    border: none;
+.card {
+  width: 250px; /* Fixed width */
+  height: 400px; /* Fixed height for all cards */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee; /* Optional border */
+  border-radius: 8px; /* Optional rounded corners */
+  overflow: hidden; /* Keeps everything contained */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Optional shadow */
 }
-.cardItem{
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    height: 500px;
-    text-align: center;
-    display: grid;
-    grid-template-rows: 250px 1fr 1fr;
-    gap: 2rem;
-    padding: 1rem;
+
+/* Image container with fixed height */
+.image {
+  width: 100%;
+  height: 250px; /* Fixed image height */
+  overflow: hidden;
+  position: relative;
 }
-.image{
-    /* height: 300px; */
-    width: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: contain;
+
+/* Ensure images fill container properly */
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop to fill */
+  object-position: center; /* Center the crop */
 }
-.image img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+
+/* Content area with fixed space distribution */
+.desc {
+  padding: 1rem;
+  flex: 0 0 auto; /* Don't grow or shrink */
 }
-.desc, .detalles{
-    display: flex;
-    align-items: center;
-    justify-content: center ;
+
+.detalles {
+  padding: 0 1rem 1rem;
+  flex: 1; /* Takes remaining space */
+  overflow: hidden; /* Prevents content from expanding card */
+}
+
+/* Text styling for consistency */
+.desc h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detalles p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* .card img{
@@ -298,6 +321,42 @@ a{
 
 
 
+/* FORM contacto */
+.contactContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 10rem;
+}
+.contactContainer h2{
+  text-align: center;
+  font-weight: bold;
+}
+.contactContainer form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.contactContainer form input{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.contactContainer form textarea{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.contactContainer form div{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
 /* footer */
 .footer{
     font-family: "Arsenal", sans-serif;
@@ -372,11 +431,45 @@ a{
     .content {
       max-width: 90%;
     }
-    
+    .products{
+      flex-wrap: wrap;
+    }
     .card {
       grid-template-columns: repeat(2, 1fr);
     }
     
+    /* about */
+
+    .aboutSection{
+      flex-direction: column;
+      height: auto;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .aboutImg, .aboutContent{
+      width: 100%;
+    }
+    .imageContainer {
+      width: 90%;
+    }
+    .aboutContent{
+      padding-right: 0;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+
+    /* .aboutSection{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .aboutImg img{
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+    }
     .aboutContent {
       padding-right: 2rem;
     }
@@ -388,7 +481,7 @@ a{
     }
     .abouText .btn{
         font-size: 1rem;
-    }
+    } */
     
     .primary-container div,
     .secondary-container div {
