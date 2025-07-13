@@ -3,10 +3,10 @@ name: Actualizar productos.json
 on:
   push:
     branches:
-      - main  # or the branch Netlify CMS uses
+      - main  # or test if you're using another branch
 
 jobs:
-  build:
+  update-json:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 18
 
-      - name: Instalar dependencias (si tienes package.json)
+      - name: Instalar dependencias (si aplica)
         run: |
           if [ -f package.json ]; then
             npm install
