@@ -84,6 +84,7 @@ a{
 /* heading */
 .heading{
     background-image: url('/assets/img/home/heading-image.png');
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: auto;
@@ -94,6 +95,22 @@ a{
     align-items: center;
     justify-content: center;
     gap: 2rem;
+
+
+    position: relative;
+    isolation: isolate;
+}
+.heading::before {
+  content: ""; /* Pseudo-elements require a content property */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Places the overlay behind the content */
+
+  /* This is the overlay color. Adjust the last value (0.5) for opacity */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .heading h1{
     font-weight: 600;
@@ -607,6 +624,12 @@ a{
     } */
     
     /* Contact section */
+    .contactContainer{
+      max-width: 100%;
+    }
+
+
+
     .contact {
       gap: 1rem;
     }
@@ -675,7 +698,7 @@ a{
     
     /* Content */
     .content {
-      max-width: 98%;
+      max-width: 100%;
       gap: 2.5rem;
     }
     
@@ -719,7 +742,16 @@ a{
     }
     
     /* Contact */
-    .primary-container div,
+    .contactContainer{
+      max-width: 100%;
+    }
+
+
+
+
+
+
+    /* .primary-container div,
     .secondary-container div {
       max-width: 100%;
       height: 250px;
@@ -730,7 +762,7 @@ a{
     .primary-container i,
     .secondary-container i {
       font-size: 1.8rem;
-    }
+    } */
     
     /* Footer */
     .footer {
