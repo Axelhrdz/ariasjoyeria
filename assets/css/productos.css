@@ -41,7 +41,7 @@ a{
     align-items: center;
     margin-bottom: 1rem;
     font-family: "Arsenal", sans-serif;
-    overflow: scroll;
+    /* overflow: scroll; */
     margin: 0 auto;
 }
 .filterBtn{
@@ -139,7 +139,7 @@ a{
     margin: 0 auto;
     flex-wrap: wrap;
     /* align-items: center; */
-    /* justify-content: center; */
+    justify-content: center;
 }
 .card .image img{
     width: 250px;
