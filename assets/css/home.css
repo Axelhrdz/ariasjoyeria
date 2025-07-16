@@ -130,8 +130,8 @@ a{
  * This is the base style for each product card.
 */
 .card {
+  padding: 0.8rem;
   background-color: #ffffff;
-  border-radius: 15px; /* Softer, more modern corners */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   overflow: hidden; /* Ensures the image corners don't stick out */
   display: flex;
@@ -151,7 +151,7 @@ a{
 */
 .card .image img {
   width: 100%;
-  height: 450px; /* A fixed height makes the grid look uniform */
+  height: 300px; /* A fixed height makes the grid look uniform */
   object-fit: cover;
   display: block;
 }
@@ -174,7 +174,7 @@ a{
  * - `flex-grow: 1` on the description pushes the button down.
 */
 .card .desc h2 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Aboreto", sans-serif;
   font-size: 1.25rem;
   margin: 0 0 0.5rem 0;
   color: #2c3e50; /* A dark, soft color */
@@ -194,7 +194,7 @@ a{
  * We align it to the bottom of the card content.
 */
 .card .detallesBoton {
-  margin-top: 1.5rem; /* Space above the button */
+  margin-top: 1.2rem; /* Space above the button */
 }
 
 /*
@@ -205,6 +205,7 @@ a{
   display: block; /* Makes the link fill the width */
   width: 100%;
   text-align: center;
+  font-size: 1rem;
 }
 
 
@@ -338,14 +339,19 @@ a{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   width: 600px;
   margin: 0 auto;
   margin-top: 10rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 4rem 3rem;
 }
 .contactContainer h2{
   text-align: center;
   font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 .contactContainer form{
   display: flex;
@@ -353,13 +359,18 @@ a{
   gap: 1rem;
   width: 100%;
 }
+.contactContainer form label{
+  color: #7e7e7e;
+}
 .contactContainer form input{
   border: 1px solid #ccc;
   border-radius: 5px;
+  padding: 0.7rem
 }
 .contactContainer form textarea{
   border: 1px solid #ccc;
   border-radius: 5px;
+  height: 200px;
 }
 .contactContainer form div{
   display: flex;
