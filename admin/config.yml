@@ -1,43 +1,21 @@
 backend:
-  name: git-gateway
-  branch: main
+name: git-gateway
+branch: main  # ✅ ahora trabajas en main
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  - name: "productos"
-    label: "Productos"
-    folder: "assets/data/productos"
-    create: true
-    # --- THIS IS THE KEY CHANGE ---
-    # It now automatically creates a URL-friendly slug from the 'title' field.
-    slug: "{{slugify(fields.title)}}"
-    fields:
-      # The fields are in a logical order for the CMS user.
-      - { label: "Título del Producto", name: "title", widget: "string" }
 
-      # --- THE MANUAL SLUG FIELD HAS BEEN REMOVED ---
 
-      - { label: "Categoría", name: "categoria", widget: "string" }
-
-      - {
-          label: "Imagen Principal (Thumbnail)",
-          name: "image",
-          widget: "image",
-        }
-
-      - label: "Galería de Imágenes Adicionales"
-        name: "images"
-        widget: "list"
-        hint: "Añade imágenes extra para la galería del producto."
-        field: { label: "Imagen de Galería", name: "image", widget: "image" }
-
-      - {
-          label: "Detalles (Descripción corta)",
-          name: "details",
-          widget: "string",
-          hint: "Una frase corta que aparece en la vista de tarjetas de productos.",
-        }
-
-      - { label: "Descripción Completa", name: "body", widget: "markdown" }
+- name: "productos"
+label: "Productos"
+folder: "assets/data/productos"
+create: true
+slug: "{{slug}}"
+fields:
+	- { label: "Imagen", name: "image", widget: "image" }
+	- { label: "Categoria", name: "categoria", widget: "string" }
+	- { label: "Nombre", name: "title", widget: "string" }
+	- { label: "Detalles", name: "details", widget: "string" }
+	- { label: "Descripción", name: "body", widget: "markdown" }
