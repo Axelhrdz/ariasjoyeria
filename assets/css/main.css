@@ -48,6 +48,16 @@ html, body {
     text-decoration: none;
   }
 
+  .nav-toggle {
+    display: none; /* Hidden by default on large screens */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 1rem;
+  }
+
   /* index/hero page */
   .heroMain{
     display: flex;
@@ -94,28 +104,53 @@ html, body {
 
 
 
-  @media (max-width: 414px) {
-    /* .heroMain {
-      padding: 1rem 1rem;
-      width: 100%;
-      height: 100vh;
+  @media (max-width: 768px) {
+    .nav {
+      justify-content: space-between;
     }
-    .title {
+    /* Show the hamburger button */
+    .nav-toggle {
+      display: block;
+      z-index: 1001; /* Ensure it's on top of other content */
+    }
+  
+    /* Style the navigation links for mobile view */
+    .navLinks {
+      position: fixed; /* Take it out of the normal document flow */
+      top: 0;
+      right: -100%; /* Start off-screen to the right */
+      width: 60%;
+      height: 100vh; /* Full viewport height */
+      background-color: rgba(
+        20,
+        20,
+        20,
+        0.95
+      ); /* Semi-transparent dark background */
+      backdrop-filter: blur(10px); /* Cool glass effect */
+      z-index: 1000;
+  
+      /* Flexbox to center and stack links */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+  
+      transition: right 0.4s ease-in-out; /* Smooth slide-in animation */
+    }
+  
+    /* This class will be toggled by JavaScript */
+    .navLinks.active {
+      right: 0; /* Slide the menu into view */
+    }
+  
+    /* Make the links inside look good */
+    .navLinks a {
+      color: white;
       font-size: 1.2rem;
     }
-    .rings {
-      width: 250px;
-      max-width: 50%;
-    }
-    .linkText {
-      font-size: 0.7rem;
-    }
-    .rings{
-        width: 150px;
-    } */
-    
   }
-
 
   
   

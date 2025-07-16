@@ -79,6 +79,11 @@
                     </a>
                 </div>
             </div>
+
+
+            <button class="nav-toggle" id="nav-toggle-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </nav>
 
 
@@ -309,55 +314,74 @@
 
     // ... inside your <script> tag at the bottom of index.html
 
-async function cargarProductos() {
-  const contenedor = document.getElementById("productos-container");
+    async function cargarProductos() {
+    const contenedor = document.getElementById("productos-container");
 
-  const res = await fetch("assets/data/productos/productos.json");
-  const archivos = await res.json();
+    const res = await fetch("assets/data/productos/productos.json");
+    const archivos = await res.json();
 
-  for (const archivo of archivos) {
-    try {
-      const res = await fetch(archivo);
+    for (const archivo of archivos) {
+        try {
+        const res = await fetch(archivo);
 
-      if (!res.ok) {
-        console.warn(`❌ Archivo no encontrado: ${archivo}`);
-        continue;
-      }
+        if (!res.ok) {
+            console.warn(`❌ Archivo no encontrado: ${archivo}`);
+            continue;
+        }
 
-      const texto = await res.text();
-      const parsed = parseFrontmatter(texto);
-      const htmlContenido = marked.parse(parsed.content);
+        const texto = await res.text();
+        const parsed = parseFrontmatter(texto);
+        const htmlContenido = marked.parse(parsed.content);
 
-      const card = document.createElement("div");
-      card.classList.add("card");
+        const card = document.createElement("div");
+        card.classList.add("card");
 
-      // --- UPDATED INNERHTML STRUCTURE ---
-      card.innerHTML = `
-        <div class="image">
-            <img src="${parsed.data.image}" alt="${parsed.data.title}">
-        </div>
-        <div class="card-content">
-            <div class="desc">
-                <h2>${parsed.data.title}</h2>
+        // --- UPDATED INNERHTML STRUCTURE ---
+        card.innerHTML = `
+            <div class="image">
+                <img src="${parsed.data.image}" alt="${parsed.data.title}">
             </div>
-            <div class="detalles">
-                <p><em>${parsed.data.details}</em></p>
+            <div class="card-content">
+                <div class="desc">
+                    <h2>${parsed.data.title}</h2>
+                </div>
+                <div class="detalles">
+                    <p><em>${parsed.data.details}</em></p>
+                </div>
+                <div class="detallesBoton">
+                    <a href="#" class="btn mainText">Ver mas detalles</a>
+                </div>
             </div>
-            <div class="detallesBoton">
-                <a href="#" class="btn mainText">Ver mas detalles</a>
-            </div>
-        </div>
-      `;
-      // --- END OF UPDATE ---
+        `;
+        // --- END OF UPDATE ---
 
-      contenedor.appendChild(card);
-    } catch (err) {
-      console.error("Error cargando producto:", archivo, err);
+        contenedor.appendChild(card);
+        } catch (err) {
+        console.error("Error cargando producto:", archivo, err);
+        }
     }
-  }
-}
+    }
 
-cargarProductos();
+    cargarProductos();
+
+
+    const navToggleBtn = document.getElementById("nav-toggle-btn");
+    const navLinks = document.querySelector(".navLinks");
+    const navIcon = navToggleBtn.querySelector("i");
+
+    navToggleBtn.addEventListener("click", () => {
+    // Toggle the 'active' class on the navigation links container
+    navLinks.classList.toggle("active");
+
+    // Toggle the icon between 'bars' and 'xmark' (close icon)
+    if (navLinks.classList.contains("active")) {
+      navIcon.classList.remove("fa-bars");
+      navIcon.classList.add("fa-xmark");
+    } else {
+      navIcon.classList.remove("fa-xmark");
+      navIcon.classList.add("fa-bars");
+    }
+  });
   </script>
 </body>
 </html>
