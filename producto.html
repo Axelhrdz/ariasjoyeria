@@ -155,23 +155,23 @@
         `;
   
         // 4. Populate the Additional Images (.prodImages)
-        imagesContainer.innerHTML = ""; // Clear it first
-        if (parsed.data.images && parsed.data.images.length > 0) {
-          // If there are images in the frontmatter, render them
-          parsed.data.images.forEach((imgUrl) => {
-            const imgElement = document.createElement("img");
-            imgElement.src = imgUrl;
-            imgElement.alt = "Vista de detalle del producto";
-            imagesContainer.appendChild(imgElement);
-          });
-        } else {
-          // If no additional images, create 4 placeholder slots
-          for (let i = 0; i < 4; i++) {
-            const placeholder = document.createElement("div");
-            placeholder.className = "placeholder-image";
-            imagesContainer.appendChild(placeholder);
-          }
-        }
+        // imagesContainer.innerHTML = ""; // Clear it first
+        // if (parsed.data.images && parsed.data.images.length > 0) {
+        //   // If there are images in the frontmatter, render them
+        //   parsed.data.images.forEach((imgUrl) => {
+        //     const imgElement = document.createElement("img");
+        //     imgElement.src = imgUrl;
+        //     imgElement.alt = "Vista de detalle del producto";
+        //     imagesContainer.appendChild(imgElement);
+        //   });
+        // } else {
+        //   // If no additional images, create 4 placeholder slots
+        //   for (let i = 0; i < 4; i++) {
+        //     const placeholder = document.createElement("div");
+        //     placeholder.className = "placeholder-image";
+        //     imagesContainer.appendChild(placeholder);
+        //   }
+        // }
       } catch (err) {
         console.error("Error cargando el producto:", err);
         mainProdContainer.innerHTML = `<h2>Producto no encontrado.</h2><p>Es posible que el producto que buscas no exista o haya sido movido.</p><a href="productos.html">← Volver a la lista</a>`;
