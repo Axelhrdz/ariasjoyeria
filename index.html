@@ -1,76 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arias joyeria</title>
-    <link rel="icon" href="assets/img/common/arias_logo.png" type="image/png" sizes="32x32">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arias Joyeria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="/assets/css/main.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-pVfHHeP8qlsRjpBxi0ZG2Q3odFvtJthDXYOpjyoChNqKxW9dM//m1YuHbA+9q+5/UDjmcFOfO07el7Em6olLug=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/hero.css">
+
 </head>
 <body>
+    <div class="mainContainer">
+        <nav class="nav">
+            <div class="nav-item-1">
+                <a href="index.html">
+                    <img src="/assets/img/common/arias_logo.png" alt="nav_logo" width="64">
+                    <span style="color: white;">Arias Joyeria</span>
+                </a>
+            </div>
+        </nav>
 
-    <div class="heroMain">
-        <div class="logoCont" data-aos="fade-up" data-aos-duration="2000">
-            <img src="assets/img/common/arias_logo.png" alt="arias_logo" width="200">
+        <!-- hero content -->
+        <div class="heroContainer">
+            <div class="grid-container">
+                <div class="grid-item item1">
+                    <h1>
+                        Arias
+                        <br>
+                        Joyeria
+                    </h1>
+                </div>
+                <div class="grid-item item2">
+
+                    <!-- Item 2: Slider -->
+                    <div class="grid-item" id="slider-container">
+                        <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="assets/img/hero/hero-slide2.jpg" alt="2" /></div>
+                            <div class="swiper-slide"><img src="assets/img/hero/hero-slide1.jpg" alt="1" /></div>
+                            <div class="swiper-slide"><img src="assets/img/hero/hero-slide4.jpg" alt="3" /></div>
+                            <div class="swiper-slide"><img src="assets/img/hero/hero-slide5.jpg" alt="3" /></div>
+                        </div>
+                        </div>
+                    </div>
+                      
+                </div>
+                <div class="grid-item item3">
+                    
+                </div>
+                <div class="grid-item item4">
+                    <a href="inicio.html">
+                        <button>Conoce nuestros productos</button>
+                    </a>
+                </div>
+            </div>
         </div>
 
 
-        <div class="headerCont" data-aos="fade-up" data-aos-duration="2000">
-            <h1 class="title">Próximamente, muy pronto</h1>
-            <!-- added class="gem" -->
-            <img src="assets/img/hero/rings.png" alt="jem_icon" width="100" class="rings" id="logo">
-        </div>
-
-        <div class="ticker">
-            <a href="https://mirgh.my.canva.site/cat-logo-junio-2025-arias-joyeria?fbclid=PAQ0xDSwLJvyZleHRuA2FlbQIxMQABpzIWzGTomxNppD4P0IyOR3KWnmgGDp36EGPSoVvTkk4whdj3uVvb_BY4JHmM_aem_Jlt5b2sV8Leu7_SLIGYmaQ" class="linkText" target="_blank">
-                ¡Mientras tanto, visita nuestro catálogo, pronto disponible aquí!
-            </a>
-        </div>
     </div>
-  <!-- Data aos library -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-
-  <!-- 1. GSAP core -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-  <script>
-    gsap.to(".rings", {
-      rotation: 360,
-      duration: 6,
-      ease: "none",
-      repeat: -1,
-    });
-  </script>
 
 
 
 
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      // Redirige al CMS después del registro
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+          loop: true,
+          autoplay: {
+            delay: 1000, // Slide every 3 seconds
+            disableOnInteraction: false,
+          },
+          on: {
+                resize: function () {
+                this.autoplay.start();
+                },
+            },
+        });
+    </script>
+      
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.querySelectorAll(".slide");
+            let current = 0;
+            const total = slides.length;
+
+            function showSlide(index) {
+                slides.forEach((s, i) => {
+                s.classList.toggle("active", i === index);
+                });
+            }
+
+            function nextSlide() {
+                current = (current + 1) % total;
+                showSlide(current);
+            }
+
+            // auto-advance every 3 seconds
+            const interval = setInterval(nextSlide, 3000);
+
+            // optional: pause on hover
+            // document.querySelector(".slider").addEventListener("mouseover", () => {
+            //     clearInterval(interval);
+            // });
+            document.querySelector(".slider").addEventListener("mouseout", () => {
+                setInterval(nextSlide, 3000);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arias joyeria</title>
+    <link rel="icon" href="assets/img/common/arias_logo.png" type="image/png" sizes="32x32">
+
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-pVfHHeP8qlsRjpBxi0ZG2Q3odFvtJthDXYOpjyoChNqKxW9dM//m1YuHbA+9q+5/UDjmcFOfO07el7Em6olLug=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+</head>
+<body>
+
+    <div class="heroMain">
+        <div class="logoCont" data-aos="fade-up" data-aos-duration="2000">
+            <img src="assets/img/common/arias_logo.png" alt="arias_logo" width="200">
+        </div>
+
+
+        <div class="headerCont" data-aos="fade-up" data-aos-duration="2000">
+            <h1 class="title">Próximamente, muy pronto</h1>
+            <!-- added class="gem" -->
+            <img src="assets/img/hero/rings.png" alt="jem_icon" width="100" class="rings" id="logo">
+        </div>
+
+        <div class="ticker">
+            <a href="https://mirgh.my.canva.site/cat-logo-junio-2025-arias-joyeria?fbclid=PAQ0xDSwLJvyZleHRuA2FlbQIxMQABpzIWzGTomxNppD4P0IyOR3KWnmgGDp36EGPSoVvTkk4whdj3uVvb_BY4JHmM_aem_Jlt5b2sV8Leu7_SLIGYmaQ" class="linkText" target="_blank">
+                ¡Mientras tanto, visita nuestro catálogo, pronto disponible aquí!
+            </a>
+        </div>
+    </div>
+  <!-- Data aos library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- 1. GSAP core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script>
+    gsap.to(".rings", {
+      rotation: 360,
+      duration: 6,
+      ease: "none",
+      repeat: -1,
+    });
+  </script>
+
+
+
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      // Redirige al CMS después del registro
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
