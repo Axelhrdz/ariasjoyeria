@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* Minimal Reset */
+:root{
+    --site-bg-color: #fffefb;
+    --text-color: #000;
+}
+
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--site-bg-color);
+  color: var(--text-color);
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+/* page css styles */
+
+
+
+
+
+
+/* FILTERS */
+.filterNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.filterBtn{
+    border: none;
+    border-radius: 2px;
+    font-size: 1.2rem;
+    /* font-family: "Arsenal", sans-serif;s */
+    font-weight: 300;
+    margin-top: 2rem;
+    background-color: #BA8C6D;
+    color: #fff;
+    padding: 0.2em 1em;
+    transition: all 0.5s;
+    text-decoration: none;
+}
+.filterBtn:hover{
+    color: #fff;
+    background-color: #7C5D48;
+}

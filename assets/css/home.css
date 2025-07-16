@@ -118,82 +118,94 @@ a{
 
 
 /* products */
-.products{
-  /* border: none; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* flex-direction: column; */
-  gap: 2rem;
-  padding: 0 2rem;
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem; /* Space between cards */
+  padding: 2rem 0;
 }
-.products button{
-    font-size: 0.8rem;
-}
+
+/*
+ * 2. The Card (.card)
+ * This is the base style for each product card.
+*/
 .card {
-  width: 250px; /* Fixed width */
-  height: 400px; /* Fixed height for all cards */
+  background-color: #ffffff;
+  border-radius: 15px; /* Softer, more modern corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* Ensures the image corners don't stick out */
+  display: flex;
+  flex-direction: column; /* Stacks card content vertically */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px); /* Lifts the card on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/*
+ * 3. Card Image
+ * - `object-fit: cover`: Prevents the image from being stretched or
+ *   squished. It will fill the container and crop if necessary.
+*/
+.card .image img {
+  width: 100%;
+  height: 450px; /* A fixed height makes the grid look uniform */
+  object-fit: cover;
+  display: block;
+}
+
+/*
+ * 4. Card Content
+ * A wrapper for all the text and the button.
+ * - `flex-grow: 1`: This is key! It makes this container expand to
+ *   fill any available vertical space, pushing the button to the bottom.
+*/
+.card .card-content {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  border: 1px solid #eee; /* Optional border */
-  border-radius: 8px; /* Optional rounded corners */
-  overflow: hidden; /* Keeps everything contained */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Optional shadow */
+  flex-grow: 1; /* This makes all cards the same height */
 }
 
-/* Image container with fixed height */
-.image {
-  width: 100%;
-  height: 250px; /* Fixed image height */
-  overflow: hidden;
-  position: relative;
+/*
+ * 5. Card Title & Description
+ * - `flex-grow: 1` on the description pushes the button down.
+*/
+.card .desc h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50; /* A dark, soft color */
 }
 
-/* Ensure images fill container properly */
-.image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Crop to fill */
-  object-position: center; /* Center the crop */
-}
-
-/* Content area with fixed space distribution */
-.desc {
-  padding: 1rem;
-  flex: 0 0 auto; /* Don't grow or shrink */
-}
-
-.detalles {
-  padding: 0 1rem 1rem;
-  flex: 1; /* Takes remaining space */
-  overflow: hidden; /* Prevents content from expanding card */
-}
-
-/* Text styling for consistency */
-.desc h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.detalles p {
-  margin: 0;
+.card .detalles p {
+  font-family: "Poppins", sans-serif;
   font-size: 0.9rem;
-  color: #666;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  color: #7f8c8d;
+  line-height: 1.5;
+  margin: 0;
+  flex-grow: 1; /* Pushes the button to the very bottom */
 }
 
-/* .card img{
-    width: 100%;
-    height: auto;
-    display: block;
-} */
+/*
+ * 6. The "Ver mas" Button
+ * We align it to the bottom of the card content.
+*/
+.card .detallesBoton {
+  margin-top: 1.5rem; /* Space above the button */
+}
+
+/*
+ * We will reuse your existing .btn class for consistency.
+ * This ensures the button here looks like the other buttons on your site.
+*/
+.card .detallesBoton .btn {
+  display: block; /* Makes the link fill the width */
+  width: 100%;
+  text-align: center;
+}
 
 
 

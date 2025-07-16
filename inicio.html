@@ -25,7 +25,7 @@
     <!-- ADD THIS AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
-  <style>
+  <!-- <style>
     .grid {
       display: grid;
       gap: 1rem;
@@ -42,7 +42,7 @@
       max-width: 100%;
       border-radius: 8px;
     }
-  </style>
+  </style> -->
 
 </head>
 <body>
@@ -221,7 +221,7 @@
 
             <div class="contactContainer">
                 <div>
-                    <h2 class="mainText">Pergunta por nuestros productos</h2>
+                    <h2 class="mainText">Pregunta por nuestros productos</h2>
                     <p class="textClass">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nesciunt dolor voluptates!</p>
                 </div>
 
@@ -302,59 +302,57 @@
 
 
 
-    async function cargarProductos() {
-      const contenedor = document.getElementById("productos-container");
-  
-      // // Paso 1: Obtener lista de archivos manualmente (ver siguiente punto para automatizarlo)
-      // const archivos = [
-      //   "assets/data/productos/testing.md",
-      //   "assets/data/productos/testong02.md"
-      //   // Agrega más productos aquí o automatiza
-      // ];
+    // ... inside your <script> tag at the bottom of index.html
 
+async function cargarProductos() {
+  const contenedor = document.getElementById("productos-container");
 
-      //implementacion con .json
-      const res = await fetch("assets/data/productos/productos.json");
-      const archivos = await res.json();
+  const res = await fetch("assets/data/productos/productos.json");
+  const archivos = await res.json();
 
-      for (const archivo of archivos) {
-        try {
-          const res = await fetch(archivo);
+  for (const archivo of archivos) {
+    try {
+      const res = await fetch(archivo);
 
-          //Si el archivo no existe
-          if(!res.ok){
-            console.warn(`❌ Archivo no encontrado: ${archivo}`);
-            continue;
-          }  
-
-
-          const texto = await res.text();
-          const parsed = parseFrontmatter(texto);
-          const htmlContenido = marked.parse(parsed.content);
-
-          const card = document.createElement("div");
-          card.classList.add("card");
-
-          card.innerHTML = `
-            <div class="image">
-                <img src="${parsed.data.image}" alt="${parsed.data.title}">
-            </div>
-            <div class="desc">
-                <h2>${parsed.data.title}</h2>
-                </div>
-            <div class="detalles">
-                <p><em>${parsed.data.details}</p>
-            </div>
-          `;
-
-          contenedor.appendChild(card);
-        } catch (err) {
-          console.error("Error cargando producto:", archivo, err);
-        }
+      if (!res.ok) {
+        console.warn(`❌ Archivo no encontrado: ${archivo}`);
+        continue;
       }
+
+      const texto = await res.text();
+      const parsed = parseFrontmatter(texto);
+      const htmlContenido = marked.parse(parsed.content);
+
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      // --- UPDATED INNERHTML STRUCTURE ---
+      card.innerHTML = `
+        <div class="image">
+            <img src="${parsed.data.image}" alt="${parsed.data.title}">
+        </div>
+        <div class="card-content">
+            <div class="desc">
+                <h2 class="mainText">${parsed.data.title}</h2>
+            </div>
+            <div class="detalles">
+                <p><em>${parsed.data.details}</em></p>
+            </div>
+            <div class="detallesBoton">
+                <a href="#" class="btn mainText">Ver mas detalles</a>
+            </div>
+        </div>
+      `;
+      // --- END OF UPDATE ---
+
+      contenedor.appendChild(card);
+    } catch (err) {
+      console.error("Error cargando producto:", archivo, err);
     }
-  
-    cargarProductos();
+  }
+}
+
+cargarProductos();
   </script>
 </body>
 </html>
