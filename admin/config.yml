@@ -2,7 +2,6 @@ backend:
   name: git-gateway
   branch: main
 
-# No changes needed here, your paths are correct.
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -11,36 +10,29 @@ collections:
     label: "Productos"
     folder: "assets/data/productos"
     create: true
-    slug: "{{slug}}" # This now works because we are adding a 'slug' field below
+    # --- THIS IS THE KEY CHANGE ---
+    # It now automatically creates a URL-friendly slug from the 'title' field.
+    slug: "{{slugify(fields.title)}}"
     fields:
-      # Fields are reordered for a better user experience in the CMS
+      # The fields are in a logical order for the CMS user.
       - { label: "Título del Producto", name: "title", widget: "string" }
 
-      # <-- ADD THIS FIELD. It is REQUIRED for the `slug` line above to work.
-      - {
-          label: "URL (slug)",
-          name: "slug",
-          widget: "string",
-          hint: "Esta es la parte de la URL para el producto. Debe ser única y no tener espacios. Ej: anillo-de-oro-18k",
-        }
+      # --- THE MANUAL SLUG FIELD HAS BEEN REMOVED ---
 
       - { label: "Categoría", name: "categoria", widget: "string" }
 
-      # The main image is now more clearly labeled
       - {
           label: "Imagen Principal (Thumbnail)",
           name: "image",
           widget: "image",
         }
 
-      # <-- THIS IS THE NEW GALLERY SECTION
       - label: "Galería de Imágenes Adicionales"
         name: "images"
         widget: "list"
         hint: "Añade imágenes extra para la galería del producto."
         field: { label: "Imagen de Galería", name: "image", widget: "image" }
 
-      # The 'details' field is kept for your product list page
       - {
           label: "Detalles (Descripción corta)",
           name: "details",

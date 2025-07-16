@@ -1,6 +1,6 @@
 ---
 title: Arete cruz prueba
-slug: arete-prueba
+slug: arete-cruz-prueba
 categoria: aretes
 image: /assets/uploads/whatsapp-image-2025-06-20-at-1.17.03-pm.jpeg
 images:
