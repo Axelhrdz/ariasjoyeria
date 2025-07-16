@@ -1,20 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
-    <link rel="stylesheet" href="/assets/css/home.css">
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis Productos</title>
+  
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+      <link rel="stylesheet" href="assets/css/main.css">
+      <link rel="stylesheet" href="assets/css/home.css">
+      <link rel="stylesheet" href="assets/css/productos.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  
+      <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+      />
+  
+      <!-- scroll animations -->
+  
+  
+      <!-- Swiper CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  
+  
+  
+      <!-- ADD THIS AOS CSS -->
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <h1>Productos</h1>
+    <!-- <style>
+      .grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        padding: 1rem;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .card img {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+    </style> -->
+  
+  </head>
+<body>
+  <div class="mainContainerProductos">
+    <!-- nav -->
+    <nav class="nav mainText">
+      <div class="nav-item-1">
+          <a href="index.html">
+              <img src="/assets/img/common/arias_logo.png" alt="nav_logo" width="64">
+              <span style="color: white;">Arias Joyeria</span>
+          </a>
+      </div>
 
-
-
+      <div class="navLinks">
+          <div class="item2">
+              <a href="">
+                  <span>Inicio</span>
+              </a>
+          </div>
+          <div class="item3">
+              <a href="">
+                  <span>Acerca de nosotros</span>
+              </a>
+          </div>
+          <div class="item4">
+              <a href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
+                  <span>OBTENER COTIZACION</span>
+              </a>
+          </div>
+      </div>
+  </nav>
+    
+    
     <!-- prodcutos -->
-    <div id="filtros" style="margin-bottom: 1rem;"></div>
+    <div id="filtros" class="filterNav"></div>
     <div id="productos-container" class="products"></div>
+  </div>
+    
+
+
+
 
 
 
@@ -80,6 +150,7 @@
       
           const crearBoton = (texto, categoria) => {
             const btn = document.createElement("button");
+            btn.className = 'filterBtn';
             btn.textContent = texto;
             btn.style.marginRight = "10px";
             btn.onclick = () => {
@@ -116,7 +187,9 @@
                   <p><em>${parsed.data.details || ""}</em></p>
                   <p><strong>Categoría:</strong> ${parsed.data.categoria || "Sin categoría"}</p>
                 </div>
-                <a href="producto.html?id=${parsed.data.slug || getSlugFromPath(parsed.ruta)}">Ver más</a>
+                <div class="detallesBoton">
+                  <a class="btnSecondary btnCard" href="producto.html?id=${parsed.data.slug || getSlugFromPath(parsed.ruta)}">Ver más</a>
+                </div>
               </div>
             `;
       
