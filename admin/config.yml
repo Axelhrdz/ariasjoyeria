@@ -1,7 +1,8 @@
 backend:
   name: git-gateway
-  branch: main  # ✅ ahora trabajas en main
+  branch: main
 
+# No changes needed here, your paths are correct.
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -10,10 +11,41 @@ collections:
     label: "Productos"
     folder: "assets/data/productos"
     create: true
-    slug: "{{slug}}"
+    slug: "{{slug}}" # This now works because we are adding a 'slug' field below
     fields:
-      - { label: "Imagen", name: "image", widget: "image" }
-      - { label: "Categoria", name: "categoria", widget: "string" }
-      - { label: "Nombre", name: "title", widget: "string" }
-      - { label: "Detalles", name: "details", widget: "string" }
-      - { label: "Descripción", name: "body", widget: "markdown" }
+      # Fields are reordered for a better user experience in the CMS
+      - { label: "Título del Producto", name: "title", widget: "string" }
+
+      # <-- ADD THIS FIELD. It is REQUIRED for the `slug` line above to work.
+      - {
+          label: "URL (slug)",
+          name: "slug",
+          widget: "string",
+          hint: "Esta es la parte de la URL para el producto. Debe ser única y no tener espacios. Ej: anillo-de-oro-18k",
+        }
+
+      - { label: "Categoría", name: "categoria", widget: "string" }
+
+      # The main image is now more clearly labeled
+      - {
+          label: "Imagen Principal (Thumbnail)",
+          name: "image",
+          widget: "image",
+        }
+
+      # <-- THIS IS THE NEW GALLERY SECTION
+      - label: "Galería de Imágenes Adicionales"
+        name: "images"
+        widget: "list"
+        hint: "Añade imágenes extra para la galería del producto."
+        field: { label: "Imagen de Galería", name: "image", widget: "image" }
+
+      # The 'details' field is kept for your product list page
+      - {
+          label: "Detalles (Descripción corta)",
+          name: "details",
+          widget: "string",
+          hint: "Una frase corta que aparece en la vista de tarjetas de productos.",
+        }
+
+      - { label: "Descripción Completa", name: "body", widget: "markdown" }
