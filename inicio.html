@@ -372,23 +372,24 @@
     cargarProductos();
 
 
+    // NAV LINK TOGGLE  
     const navToggleBtn = document.getElementById("nav-toggle-btn");
     const navLinks = document.querySelector(".navLinks");
     const navIcon = navToggleBtn.querySelector("i");
 
     navToggleBtn.addEventListener("click", () => {
-    // Toggle the 'active' class on the navigation links container
-    navLinks.classList.toggle("active");
+        // Toggle the 'active' class on the navigation links container
+        navLinks.classList.toggle("active");
 
-    // Toggle the icon between 'bars' and 'xmark' (close icon)
-    if (navLinks.classList.contains("active")) {
-      navIcon.classList.remove("fa-bars");
-      navIcon.classList.add("fa-xmark");
-    } else {
-      navIcon.classList.remove("fa-xmark");
-      navIcon.classList.add("fa-bars");
-    }
-  });
+        // Toggle the icon between 'bars' and 'xmark' (close icon)
+        if (navLinks.classList.contains("active")) {
+        navIcon.classList.remove("fa-bars");
+        navIcon.classList.add("fa-xmark");
+        } else {
+        navIcon.classList.remove("fa-xmark");
+        navIcon.classList.add("fa-bars");
+        }
+    });
   </script>
 </body>
 </html>

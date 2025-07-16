@@ -25,25 +25,6 @@
   
       <!-- ADD THIS AOS CSS -->
       <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- <style>
-      .grid {
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
-      .card {
-        border: 1px solid #ccc;
-        border-radius: 12px;
-        padding: 1rem;
-        background: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      }
-      .card img {
-        max-width: 100%;
-        border-radius: 8px;
-      }
-    </style> -->
   
   </head>
 <body>
@@ -74,12 +55,33 @@
               </a>
           </div>
       </div>
-  </nav>
+
+
+      <button class="nav-toggle" id="nav-toggle-btn">
+          <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
     
     
     <!-- prodcutos -->
     <div id="filtros" class="filterNav"></div>
     <div id="productos-container" class="products"></div>
+
+
+
+    <!-- footer section -->
+    <hr class="separator">
+    <div class="footer">
+        <h1 class="titleClass mainText" style="text-align: center;">Enterate de lo nuevo</h1>
+        <div class="inputFooter">
+            <span class="spanFooter textClass">Registra tu correo y enterate de las novedades y promociones</span>
+            <div class="inputs">
+                <input type="email" name="emailReg" id="emailReg" placeholder="ejemplo@email.com">
+                <button class="btn btn-footer mainText">Suscribir</button>
+
+            </div>
+        </div>
+    </div>
   </div>
     
 
@@ -143,28 +145,70 @@
           renderizarProductos(productos);
         }
       
+        
+
         function generarBotonesDeFiltro() {
-          const categorias = [...new Set(productos.map(p => p.data.categoria))];
-          const contenedor = document.getElementById("filtros");
-          contenedor.innerHTML = "";
-      
-          const crearBoton = (texto, categoria) => {
-            const btn = document.createElement("button");
-            btn.className = 'filterBtn';
-            btn.textContent = texto;
-            btn.style.marginRight = "10px";
-            btn.onclick = () => {
-              const filtrados = categoria === "all"
+          const categoriasDeProductos = productos
+          .map((p) => p.data.categoria)
+          .filter(Boolean);
+
+        const categorias = ["Todos", ...new Set(categoriasDeProductos)];
+        const contenedor = document.getElementById("filtros");
+        contenedor.innerHTML = "";
+
+        // --- Create the buttons (for desktop) ---
+        categorias.forEach((cat) => {
+          const btn = document.createElement("a");
+          btn.className = "filterBtn";
+          btn.textContent = cat;
+
+          // --- MODIFIED ONCLICK HANDLER ---
+          btn.onclick = () => {
+            // 1. Remove 'active-filter' from all buttons first
+            const allButtons = document.querySelectorAll(".filterBtn");
+            allButtons.forEach((b) => b.classList.remove("active-filter"));
+
+            // 2. Add 'active-filter' to the clicked button
+            btn.classList.add("active-filter");
+
+            // 3. Perform the filtering
+            const categoriaReal = cat === "Todos" ? "all" : cat;
+            const filtrados =
+              categoriaReal === "all"
                 ? productos
-                : productos.filter(p => p.data.categoria === categoria);
-              renderizarProductos(filtrados);
-            };
-            contenedor.appendChild(btn);
+                : productos.filter((p) => p.data.categoria === categoriaReal);
+            renderizarProductos(filtrados);
           };
-      
-          crearBoton("Todos", "all");
-          categorias.forEach(cat => crearBoton(cat, cat));
+          // --- END OF MODIFICATION ---
+            contenedor.appendChild(btn);
+          });
+
+          // --- Create the select dropdown (for mobile) ---
+          const select = document.createElement("select");
+          select.id = "filtro-select";
+          select.className = "filterSelect";
+
+          categorias.forEach((cat) => {
+            const option = document.createElement("option");
+            option.value = cat === "Todos" ? "all" : cat;
+            option.textContent = cat;
+            select.appendChild(option);
+          });
+
+          select.onchange = (event) => {
+            const categoriaSeleccionada = event.target.value;
+            const filtrados =
+              categoriaSeleccionada === "all"
+                ? productos
+                : productos.filter((p) => p.data.categoria === categoriaSeleccionada);
+            renderizarProductos(filtrados);
+          };
+
+          contenedor.appendChild(select);
         }
+
+
+
       
         function renderizarProductos(lista) {
           const contenedor = document.getElementById("productos-container");
@@ -176,10 +220,10 @@
             card.classList.add("card");
       
             card.innerHTML = `
-              <div class="cardItem">
-                <div class="image">
-                  <img src="${parsed.data.image}" alt="${parsed.data.title}">
-                </div>
+              <div class="image">
+                <img src="${parsed.data.image}" alt="${parsed.data.title}">
+              </div>
+              <div class="card-content">
                 <div class="desc">
                   <h2>${parsed.data.title}</h2>
                 </div>
@@ -203,6 +247,28 @@
         }
       
         cargarProductos();
+
+
+
+
+        // NAV LINK TOGGLE  
+        const navToggleBtn = document.getElementById("nav-toggle-btn");
+        const navLinks = document.querySelector(".navLinks");
+        const navIcon = navToggleBtn.querySelector("i");
+
+        navToggleBtn.addEventListener("click", () => {
+            // Toggle the 'active' class on the navigation links container
+            navLinks.classList.toggle("active");
+
+            // Toggle the icon between 'bars' and 'xmark' (close icon)
+            if (navLinks.classList.contains("active")) {
+            navIcon.classList.remove("fa-bars");
+            navIcon.classList.add("fa-xmark");
+            } else {
+            navIcon.classList.remove("fa-xmark");
+            navIcon.classList.add("fa-bars");
+            }
+        });
       </script>
       
 </body>

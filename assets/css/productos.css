@@ -25,33 +25,134 @@ a{
 
 
 /* page css styles */
-
-
-
+.mainContainerProductos{
+    max-width: 100%;
+    overflow: hidden;
+}
 
 
 
 /* FILTERS */
 .filterNav{
+    max-width: 80%;
     display: flex;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    font-family: "Arsenal", sans-serif;
+    overflow: scroll;
+    margin: 0 auto;
 }
 .filterBtn{
     border: none;
     border-radius: 2px;
     font-size: 1.2rem;
-    /* font-family: "Arsenal", sans-serif;s */
     font-weight: 300;
     margin-top: 2rem;
-    background-color: #BA8C6D;
-    color: #fff;
+    color: #626262;
     padding: 0.2em 1em;
     transition: all 0.5s;
     text-decoration: none;
 }
 .filterBtn:hover{
-    color: #fff;
-    background-color: #7C5D48;
+    color: #7C5D48;
+    text-decoration: underline;
+    text-decoration-color: #7C5D48;
+    cursor: pointer;
 }
+.filterBtn.active-filter {
+    color: #7c5d48;
+    text-decoration: underline;
+    text-decoration-color: #7c5d48;
+    font-weight: 500; /* Make it slightly bolder to stand out */
+}
+
+
+
+
+
+/* This is the new dropdown for mobile, hidden by default */
+.filterSelect {
+    display: none; /* Hide on desktop */
+    width: 100%; /* Take up full width of its container */
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-family: "Arsenal", sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    -webkit-appearance: none; /* Removes default browser styling */
+    -moz-appearance: none;
+    appearance: none;
+    /* Add a custom dropdown arrow */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23626262%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-13z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+  }
+  
+  /* --- Responsive Styles for screens 768px or less --- */
+  @media (max-width: 768px) {
+    /* Hide the original buttons */
+    .filterBtn {
+      display: none;
+    }
+  
+    /* Show the new dropdown */
+    .filterSelect {
+      display: block;
+    }
+  
+    /* Adjust the container for the dropdown */
+    .filterNav {
+      width: 90%; /* Give it a bit more space */
+      padding: 1rem 0;
+      margin-top: 1rem;
+      overflow: visible; /* Turn off scrolling */
+    }
+
+
+    .products{
+        max-width: 90%;
+        justify-content: center;
+    }
+
+
+
+
+    /* footer */
+    .footer{
+        margin: 5rem 1rem;
+    }
+  }
+
+
+
+
+/* PRODUCTS MAIN CONTAINER */
+.products{
+    display: flex;
+    max-width: 70%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+.card .image img{
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+.card-content{
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+
+
