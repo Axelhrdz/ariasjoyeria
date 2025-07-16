@@ -120,6 +120,14 @@ a{
   
   
   /* --- Responsive Design for Mobile --- */
+
+  @media (max-width: 768px) {
+        .footer {
+            margin: 5rem 1rem;
+            padding: 12rem 1rem;
+        }
+    }
+
   @media (max-width: 900px) {
     .prodContainer {
       /* Stack the columns on top of each other */
