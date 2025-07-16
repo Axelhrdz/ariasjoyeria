@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* Minimal Reset */
+:root{
+    --site-bg-color: #fffefb;
+    --text-color: #000;
+}
+
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--site-bg-color);
+  color: var(--text-color);
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+/* main container */
+
+
+
+
+
+/* prodContainer */
+/* Main Product Container: Using Grid for modern layout */
+.prodContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 2rem; /* Space between the image and content columns */
+    max-width: 1200px; /* A sensible max-width for content */
+    margin: 3rem auto; /* Center the container on the page */
+    padding: 1rem;
+    /* font-family: Aboreto; */
+  }
+  
+  /* Left Column: Contains all images */
+  .prodCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between the main image and the gallery */
+    /* We remove fixed width/height to let content be flexible */
+  }
+  .prodTitle{
+    font-family: Aboreto;
+    font-weight: 800;
+  }
+  
+  /* Main Image Container (The "Thumbnail") */
+  .prodThumb {
+    width: 100%;
+    /* A modern way to maintain shape without a fixed height */
+    aspect-ratio: 1 / 1;
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 8px; /* Soft rounded corners */
+    overflow: hidden; /* Ensures the image stays within the rounded corners */
+  }
+  
+  /* The Image Itself: This is the key part */
+  .prodThumb img {
+    width: 100%;
+    height: 100%;
+    /* This makes the image cover the container without stretching. */
+    /* It will crop the image slightly if aspect ratios don't match. */
+    object-fit: cover;
+  }
+  
+  /* Gallery of Additional Images */
+  .prodImages {
+    display: grid;
+    /* Creates as many columns as fit, with a minimum size of 80px */
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+  }
+  
+  /* Styling for each small gallery image */
+  .prodImages img,
+  .placeholder-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .prodImages img:hover {
+    border-color: #7c5d48; /* Your brand color for hover */
+    transform: scale(1.05);
+  }
+  
+  /* Style for the placeholder slots you created in JS */
+  .placeholder-image {
+    background-color: #f5f5f5;
+    border: 1px dashed #ccc;
+  }
+
+
+.prodCategory{
+    font-style: italic;
+    font-weight: bold;
+}
+  .prodContent{
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  
+
+  
+  
+  /* --- Responsive Design for Mobile --- */
+  @media (max-width: 900px) {
+    .prodContainer {
+      /* Stack the columns on top of each other */
+      grid-template-columns: 1fr;
+      margin-top: 1rem;
+      gap: 2rem;
+    }
+  }
+
+
+
+
+/* .prodContainer{
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    padding: 1rem;
+    background-color: #ccc;
+}
+.prodCard{
+    width: 50%;
+    background-color: #bdbdbd;
+    height: 75vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.prodThumb{
+    background-color: blue;
+    height: 70%;
+    background-size: contain;
+}
+.prodThumb img{
+    background-size: contain;
+}
+.prodImages{
+    height: 30%;
+}
+.prodContent{
+    width: 50%;
+    background-color: #fff5e4;
+    height: 75vh;
+} */
