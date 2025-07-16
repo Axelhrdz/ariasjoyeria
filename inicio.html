@@ -312,13 +312,19 @@
 
 
 
+    function getSlugFromPath(path) {
+        return path.split("/").pop().replace(".md", "");
+    }
+
+
+
     // ... inside your <script> tag at the bottom of index.html
 
     async function cargarProductos() {
     const contenedor = document.getElementById("productos-container");
 
     const res = await fetch("assets/data/productos/productos.json");
-    const archivos = await res.json();
+    const archivos = (await res.json()).slice(0, 4);
 
     for (const archivo of archivos) {
         try {
@@ -349,7 +355,8 @@
                     <p><em>${parsed.data.details}</em></p>
                 </div>
                 <div class="detallesBoton">
-                    <a href="#" class="btn mainText">Ver mas detalles</a>
+                    <a href="producto.html?id=${
+                    parsed.data.slug || getSlugFromPath(archivo)}" class="btn mainText">Ver mas detalles</a>
                 </div>
             </div>
         `;
