@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Producto</title>
+  <title id="titlePage"></title>
 
-
+  <link rel="icon" type="image/png" href="assets/img/common/arias_logo.png">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
@@ -145,6 +145,9 @@
         }
   
         // 3. Populate the Content (.prodContent)
+        const titlePage = document.getElementById('titlePage');
+        titlePage.textContent = parsed.data.title;
+
         contentContainer.innerHTML = `
         <h1 class="prodTitle">${parsed.data.title || "Título no disponible"}</h1>
         <span class="prodCategory"><span>Categoria:</span> ${parsed.data.categoria || "Sin categoría"}</span>
