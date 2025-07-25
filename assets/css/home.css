@@ -474,6 +474,7 @@ a{
     }
     .products{
       flex-wrap: wrap;
+      margin: 0 auto;
     }
     .card {
       grid-template-columns: repeat(2, 1fr);
