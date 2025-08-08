@@ -5,9 +5,11 @@ title: Cadena Barbada Oro 10k - 50cm
 details: Diseño Barbada oro 10k, ideal para lucir sola o con dije
 ---
 * **Material:** Oro 10k
-* **Peso:** 3.9G
+* **Peso:** 4.1g
 * **Largo:** 50 cm
 * **G﻿rosor:** 3 mm
 * **Diseño:** Fígaro clásico
 
-Cotizaciones vía Instagram
+*$﻿6200 -$6500*
+
+**Cotizaciones vía Instagram**
