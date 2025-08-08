@@ -8,4 +8,8 @@ details: Diseño, brillo y actitud. Ideal para un look moderno y auténtico
 
 **G﻿rosor**: 1mm
 
-C﻿otizaciones vía Instagram
+**D﻿iseño:** Aro vitrina
+
+$﻿300 - $350
+
+**C﻿otizaciones vía Instagram**
