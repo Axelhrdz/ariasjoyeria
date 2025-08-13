@@ -4,14 +4,12 @@ categoria: Pulso Oro 10k
 title: Pulso Cartier Oro 10k - 18cmX1mm
 details: Reflejo de tu identidad. Ideal para combinar con cadenas o aretes.
 ---
-**Material**: Oro 10k
+* **Material**: Oro 10k
+* **Peso**: 1.2g
+* **Largo**: 18cm
+* **G﻿rosor**: 1mm
+* **Diseño**: Cartier
 
-**Peso**: 1.2g
+*$﻿2200 - $2500*
 
-**Largo**: 18cm
-
-**G﻿rosor**: 1mm
-
-**Diseño**: Cartier
-
-Cotizaciones vía Instagram
+**Cotizaciones vía Instagram**
