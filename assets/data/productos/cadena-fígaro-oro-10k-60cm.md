@@ -10,4 +10,6 @@ details: Diseño Fígaro en oro 10k, ideal para lucir sola o con dije.
 * **G﻿rosor:** 3-4mm
 * **D﻿iseño:** Fígaro
 
+$﻿11,350 - $11,650
+
 C﻿otizaciones vía Instagram
