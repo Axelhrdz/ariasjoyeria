@@ -4,12 +4,11 @@ categoria: Pulso Plata .925
 title: Pulso Ondina Plata .925
 details: Ligereza y elegancia en una sola pieza
 ---
-**Material**: Plata .925
+* **Material**: Plata .925
+* **Peso**: 3.1g
+* **Largo**: 18cm
+* **G﻿rosor**: 1-2mm
 
-**Peso**: 3.1g
+*$﻿400 - $450*
 
-**Largo**: 18cm
-
-**G﻿rosor**: 1-2mm
-
-C﻿otizaciones vía Instagram
+**C﻿otizaciones vía Instagram**
