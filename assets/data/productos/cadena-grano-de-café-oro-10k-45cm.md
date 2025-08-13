@@ -10,4 +10,6 @@ details: Cadena Grano de Café Oro 10k, ideal para un estilo moderno y con cará
 * **G﻿rosor:** 1-2mm
 * **Diseño:** Grano de Cafe 
 
-Cotizaciones vía Instagram
+$﻿1970 - $2270
+
+**Cotizaciones vía Instagram**
