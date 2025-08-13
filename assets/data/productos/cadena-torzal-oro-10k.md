@@ -10,4 +10,6 @@ details: Cadena Torzal de eslabon grueso Oro 10k, un estilo llamativo y con pres
 * **G﻿rosor:** 2-3mm
 * **Diseño:** Torzal
 
-Cotizaciones vía Instagram
+*$﻿6200 - $6500*
+
+**Cotizaciones vía Instagram**
