@@ -4,14 +4,12 @@ categoria: Pulso Plata .925
 title: Pulso Corazon Plata .925
 details: Un detalle que eleva tu estilo. Ideal para un toque chic sin esfuerzo
 ---
-**Material**: Plata .925
+* **Material**: Plata .925
+* **Peso**: 2.5g
+* **Largo**: 18cm
+* **G﻿rosor**: 2-3mm
+* **Diseño**: Corazon
 
-**Peso**: 2.5g
+*$290 - $320*
 
-**Largo**: 18cm
-
-**G﻿rosor**: 2-3mm
-
-**Diseño**: Corazon
-
-Cotizaciones vía Instagram
+**Cotizaciones vía Instagram**
