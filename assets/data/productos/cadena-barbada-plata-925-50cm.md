@@ -5,14 +5,12 @@ title: Cadena Barbada Plata .925 - 50cm
 details: Cadena con diseño barbado Plata .925, elegante y versátil para
   cualquier ocasión
 ---
-**Material**: Plata .925
+* **Material**: Plata .925
+* **Peso**: 8.7g
+* **Largo**: 50cm
+* **G﻿rosor**: 2 mm
+* **Diseño**: Barbado
 
-**Peso**: 8.7g
+*$﻿600 - $900*
 
-**Largo**: 50cm
-
-**G﻿rosor**: 2 mm
-
-**Diseño**: Barbado
-
-Cotizaciones vía Instagram
+**Cotizaciones vía Instagram**
