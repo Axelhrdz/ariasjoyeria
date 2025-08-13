@@ -10,4 +10,6 @@ details: Cadena con diseño Cartier Oro 10k, elegante y versátil para cualquier
 * **G﻿rosor:** 1-2 mm
 * **Diseño:** Cartier
 
-Cotizaciones vía Instagram
+*$﻿1800 - $2100*
+
+**Cotizaciones vía Instagram**
