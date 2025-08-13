@@ -10,6 +10,6 @@ details: Diseños que abrazan tu muñeca con personalidad. Ideal para usar todos
 * **G﻿rosor**: 2-3mm
 * **Diseño**: Barbado
 
-*$﻿470 - $500*
+*$﻿470 - $550*
 
 **Cotizaciones vía Instagram**
