@@ -5,14 +5,12 @@ title: Pulso Torzal Oro 10k
 details: Pulso firme, tejido más grueso con un estilo fuerte. Ideal para looks
   que no pasan desapercibidos
 ---
-**Material**: Oro 10k
+* **Material**: Oro 10k
+* **Peso**: 1.8g
+* **Largo**: 18cm
+* **G﻿rosor**: 2-3mm
+* **Diseño**: Torzal
 
-**Peso**: 1.8g
+*$﻿3000 - $3300*
 
-**Largo**: 18cm
-
-**G﻿rosor**: 2-3mm
-
-**Diseño**: Torzal
-
-Cotizaciones vía Instagram
+**Cotizaciones vía Instagram**
