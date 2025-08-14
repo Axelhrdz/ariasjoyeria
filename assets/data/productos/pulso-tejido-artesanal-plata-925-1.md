@@ -4,14 +4,12 @@ categoria: Pulso Plata .925
 title: Pulso Tejido Artesanal Plata .925
 details: Minimalistas o con presencia, tú eliges. Ideal para reflejar tu esencia
 ---
-**Material**: Plata .925
+* **Material**: Plata .925
+* **Peso**: 2g
+* **Largo**: 18cm
+* **G﻿rosor**: 2mm
+* **Diseño**: Tejido Artesanal
 
-**Peso**: 2g
+*$﻿330 - $380*
 
-**Largo**: 18cm
-
-**G﻿rosor**: 2mm
-
-**Diseño**: Tejido Artesanal
-
-C﻿otizaciones vía Instagram
+**C﻿otizaciones vía Instagram**
