@@ -83,7 +83,7 @@ a{
 
 /* heading */
 .heading{
-    background-image: url('/assets/img/home/heading-image.png');
+    background-image: url('/assets/img/home/heading_image.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -110,7 +110,7 @@ a{
   z-index: -1; /* Places the overlay behind the content */
 
   /* This is the overlay color. Adjust the last value (0.5) for opacity */
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
 }
 .heading h1{
     font-weight: 600;
