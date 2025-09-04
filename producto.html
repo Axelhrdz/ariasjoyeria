@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Producto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="titlePage"></title>
+
+  <link rel="icon" type="image/png" href="assets/img/common/arias_logo.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/producto.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+  />
+
+
   <script src="js/gray-matter.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
@@ -18,60 +38,166 @@
   </style>
 </head>
 <body>
-  <div class="container" id="producto-detalle">
-    <p>Cargando producto...</p>
+  <div class="mainContainerProducto">
+      <!-- nav -->
+      <nav class="nav mainText">
+        <div class="nav-item-1">
+            <a href="inicio.html">
+                <img src="/assets/img/common/arias_logo.png" alt="nav_logo" width="64">
+                <span style="color: white;">Arias Joyeria</span>
+            </a>
+        </div>
+
+        <div class="navLinks">
+            <div class="item2">
+                <a href="inicio.html">
+                    <span>Inicio</span>
+                </a>
+            </div>
+            <div class="item2">
+                <a href="productos.html">
+                    <span>Productos</span>
+                </a>
+            </div>
+            <!-- <div class="item3">
+                <a href="acerca.html">
+                    <span>Acerca de nosotros</span>
+                </a>
+            </div> -->
+            <div class="item4">
+                <a href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank">
+                    <span>OBTENER COTIZACION</span>
+                </a>
+            </div>
+        </div>
+
+
+        <button class="nav-toggle" id="nav-toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+
+
+    <!-- PRODUCTOS -->
+    <div class="prodContainer">
+      <div class="prodCard">
+        <div class="prodThumb" id="producto-detalle"></div>
+        <div class="prodImages"></div>
+      </div>
+      <div class="prodContent"></div>
+    </div>
+
+
+
+    <!-- footer section -->
+    <hr class="separator">
+    <div class="footer">
+        <h1 class="titleClass mainText" style="text-align: center;">Enterate de lo nuevo</h1>
+        <div class="inputFooter">
+            <span class="spanFooter textClass">Registra tu correo y enterate de las novedades y promociones</span>
+            <div class="inputs">
+                <input type="email" name="emailReg" id="emailReg" placeholder="ejemplo@email.com">
+                <button class="btn btn-footer mainText">Suscribir</button>
+
+            </div>
+        </div>
+    </div>
   </div>
 
+
+
   <script>
+    // IMPORTANT: Make sure gray-matter.js is loaded.
+    // If you don't have it locally, you can use a CDN like this:
+    // <script src="https://cdn.jsdelivr.net/npm/gray-matter@4.0.3/dist/gray-matter.min.js">
+  
     async function cargarProducto() {
+      // 1. Get handles to all your containers
+      const thumbContainer = document.querySelector(".prodThumb");
+      const imagesContainer = document.querySelector(".prodImages");
+      const contentContainer = document.querySelector(".prodContent");
+      const mainProdContainer = document.querySelector(".prodContainer");
+  
       const params = new URLSearchParams(window.location.search);
       const id = params.get("id");
-      const contenedor = document.getElementById("producto-detalle");
-
+  
       if (!id) {
-        contenedor.innerHTML = `<p>Producto no especificado.</p>`;
+        mainProdContainer.innerHTML = `<h2>Producto no especificado.</h2><a href="productos.html">← Volver</a>`;
         return;
       }
-
-      // Use absolute path to ensure correct file loading
+  
       const ruta = `/assets/data/productos/${id}.md`;
-      console.log(`Loading product from: ${ruta}`);
-
+  
       try {
         const res = await fetch(ruta);
-        console.log(`Fetch response status: ${res.status}`);
-        
         if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
+          throw new Error(`No se pudo encontrar el archivo del producto en: ${ruta}`);
         }
-
+  
         const texto = await res.text();
-        console.log(`Product content: ${texto}`);
-        
-        const parsed = matter(texto);
-        console.log(`Parsed frontmatter:`, parsed.data);
-        
-        const html = marked.parse(parsed.content);
+        const parsed = matter(texto); // Use gray-matter to parse
+        const htmlDescription = marked.parse(parsed.content);
+  
+        // 2. Populate the Thumbnail Image (.prodThumb)
+        if (parsed.data.image) {
+          thumbContainer.innerHTML = `<img src="${parsed.data.image}" alt="${parsed.data.title}">`;
+        }
+  
+        // 3. Populate the Content (.prodContent)
+        const titlePage = document.getElementById('titlePage');
+        titlePage.textContent = parsed.data.title;
 
-        contenedor.innerHTML = `
-          <h1>${parsed.data.title || 'Título no disponible'}</h1>
-          ${parsed.data.image ? `<img src="${parsed.data.image}" alt="${parsed.data.title || 'Imagen del producto'}" />` : ''}
-          <p><strong>Detalles:</strong> ${parsed.data.details || 'Detalles no disponibles'}</p>
-          ${parsed.data.date ? `<p><em>${new Date(parsed.data.date).toLocaleDateString()}</em></p>` : ''}
-          <div>${html}</div>
-          <p><a href="productos.html">← Volver a productos</a></p>
+        contentContainer.innerHTML = `
+        <h1 class="prodTitle">${parsed.data.title || "Título no disponible"}</h1>
+        <span class="prodCategory"><span>Categoria:</span> ${parsed.data.categoria || "Sin categoría"}</span>
+          <div class="prodDescription">${htmlDescription}</div>
+          <a href="https://www.instagram.com/arias_joyeria_/?igsh=MXR0OTdubWw2aDY2bA%3D%3D#" target="_blank" class="btn mainText">
+              Cotizar este producto
+          </a>
         `;
+  
+        // 4. Populate the Additional Images (.prodImages)
+        // imagesContainer.innerHTML = ""; // Clear it first
+        // if (parsed.data.images && parsed.data.images.length > 0) {
+        //   // If there are images in the frontmatter, render them
+        //   parsed.data.images.forEach((imgUrl) => {
+        //     const imgElement = document.createElement("img");
+        //     imgElement.src = imgUrl;
+        //     imgElement.alt = "Vista de detalle del producto";
+        //     imagesContainer.appendChild(imgElement);
+        //   });
+        // } else {
+        //   // If no additional images, create 4 placeholder slots
+        //   for (let i = 0; i < 4; i++) {
+        //     const placeholder = document.createElement("div");
+        //     placeholder.className = "placeholder-image";
+        //     imagesContainer.appendChild(placeholder);
+        //   }
+        // }
       } catch (err) {
-        console.error('Error:', err);
-        contenedor.innerHTML = `
-          <p>Producto no encontrado o no disponible.</p>
-          <p>Detalles del error: ${err.message}</p>
-          <p>URL intentada: ${ruta}</p>
-        `;
+        console.error("Error cargando el producto:", err);
+        mainProdContainer.innerHTML = `<h2>Producto no encontrado.</h2><p>Es posible que el producto que buscas no exista o haya sido movido.</p><a href="productos.html">← Volver a la lista</a>`;
       }
     }
-
+  
     cargarProducto();
+  
+    // Your navbar toggle script can go here
+    const navToggleBtn = document.getElementById("nav-toggle-btn");
+    const navLinks = document.querySelector(".navLinks");
+    const navIcon = navToggleBtn.querySelector("i");
+  
+    navToggleBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      if (navLinks.classList.contains("active")) {
+        navIcon.classList.remove("fa-bars");
+        navIcon.classList.add("fa-xmark");
+      } else {
+        navIcon.classList.remove("fa-xmark");
+        navIcon.classList.add("fa-bars");
+      }
+    });
   </script>
 </body>
 </html>

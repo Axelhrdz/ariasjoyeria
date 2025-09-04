@@ -1,15 +1,17 @@
 backend:
   name: git-gateway
-  branch: main  # ✅ ahora trabajas en main
+  branch: main
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
   - name: "productos"
+    # --- FIX: All lines below are indented with 2 spaces ---
     label: "Productos"
     folder: "assets/data/productos"
     create: true
+    # --- FIX: Automatically creates the URL from the "Nombre" field ---
     slug: "{{slug}}"
     fields:
       - { label: "Imagen", name: "image", widget: "image" }
