@@ -34,18 +34,21 @@ a{
 
 /* FILTERS */
 .filterNav{
-    max-width: 80%;
+    max-width: 70%;
+    height: auto;
+    padding: 2rem;
     display: flex;
     gap: 2rem;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     margin-bottom: 1rem;
     font-family: "Arsenal", sans-serif;
-    /* overflow: scroll; */
+    overflow-x: scroll;
     margin: 0 auto;
 }
 .filterBtn{
-    border: none;
+    min-width: 200px;
+    /* border: 1px solid black; */
     border-radius: 2px;
     font-size: 1.2rem;
     font-weight: 300;
@@ -54,17 +57,20 @@ a{
     padding: 0.2em 1em;
     transition: all 0.5s;
     text-decoration: none;
+    text-align: center;
 }
 .filterBtn:hover{
-    color: #7C5D48;
+    color: #fff;
     text-decoration: underline;
-    text-decoration-color: #7C5D48;
+    text-decoration-color: #fff;
+    background-color: #000;
     cursor: pointer;
 }
 .filterBtn.active-filter {
-    color: #7c5d48;
+    color: #fff;
     text-decoration: underline;
-    text-decoration-color: #7c5d48;
+    text-decoration-color: #fff;
+    background-color: #000;
     font-weight: 500; /* Make it slightly bolder to stand out */
 }
 
